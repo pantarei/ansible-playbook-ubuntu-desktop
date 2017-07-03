@@ -57,7 +57,6 @@
         - { state: "latest", name: "php7.1-bcmath" }
         - { state: "latest", name: "php7.1-cli" }
         - { state: "latest", name: "php7.1-curl" }
-        - { state: "latest", name: "php7.1-fpm" }
         - { state: "latest", name: "php7.1-gd" }
         - { state: "latest", name: "php7.1-imap" }
         - { state: "latest", name: "php7.1-intl" }
