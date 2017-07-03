@@ -9,30 +9,6 @@
         update_cache: "yes"
         upgrade: "full"
 
-    - name: apt-key add
-      apt_key:
-        url: "{{ item.url }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "present", url: "https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public" }
-
-    - name: apt-add-repository
-      apt_repository:
-        repo: "{{ item.repo }}"
-        state: "{{ item.state }}"
-        update_cache: "no"
-      with_items:
-        - { state: "present", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main" }
-        - { state: "present", repo: "ppa:alessandro-strada/ppa" }
-        - { state: "present", repo: "ppa:libretro/stable" }
-        - { state: "present", repo: "ppa:ondrej/php" }
-      register: apt_repository_result
-
-    - name: apt-get update
-      apt:
-        update_cache: "yes"
-      when: apt_repository_result | changed
-
     - name: apt install
       apt:
         name: "{{ item.name }}"

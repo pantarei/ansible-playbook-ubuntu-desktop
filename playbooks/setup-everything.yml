@@ -1,0 +1,8 @@
+---
+
+- include: setup-hosts.yml
+
+- include: google-drive-ocamlfuse-install.yml
+- include: hipchat-install.yml
+- include: retroarch-install.yml
+- include: php-install.yml
