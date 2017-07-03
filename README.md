@@ -1,9 +1,8 @@
 Ansible Playbook for Ubuntu GNOME
 =================================
 
-[![Build Status](https://travis-ci.org/pantarei/ansible-playbook-ubuntu.svg?branch=master)](https://travis-ci.org/pantarei/ansible-playbook-ubuntu)
-[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-playbook-ubuntu.svg)](https://github.com/pantarei/ansible-playbook-ubuntu)
-[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-playbook-ubuntu.svg)](https://github.com/pantarei/ansible-playbook-ubuntu/blob/master/LICENSE)
+[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-playbook-ubuntu-gnome.svg)](https://github.com/pantarei/ansible-playbook-ubuntu-gnome)
+[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-playbook-ubuntu-gnome.svg)](https://github.com/pantarei/ansible-playbook-ubuntu-gnome/blob/master/LICENSE)
 
 Ansible Playbook for Ubuntu GNOME Installation.
 
@@ -35,11 +34,11 @@ There are four main steps for running a customized AIO build:
 -   Configuration *(this step is optional)*
 -   Run playbooks
 
-Start by cloning the ansible-playbook-ubuntu repository and changing into the repository root directory:
+Start by cloning the ansible-playbook-ubuntu-gnome repository and changing into the repository root directory:
 
-    $ git clone https://github.com/pantarei/ansible-playbook-ubuntu \
-        /opt/ansible-playbook-ubuntu
-    $ cd /opt/ansible-playbook-ubuntu
+    $ git clone https://github.com/pantarei/ansible-playbook-ubuntu-gnome \
+        /opt/ansible-playbook-ubuntu-gnome
+    $ cd /opt/ansible-playbook-ubuntu-gnome
 
 Next bootstrap Ansible by executing:
 
@@ -94,7 +93,7 @@ Dependencies
 License
 -------
 
--   Code released under [MIT](https://github.com/hswong3i/ansible-playbook-ubuntu/blob/master/LICENSE)
+-   Code released under [MIT](https://github.com/hswong3i/ansible-playbook-ubuntu-gnome/blob/master/LICENSE)
 -   Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 
 Author Information
