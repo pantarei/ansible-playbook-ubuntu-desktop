@@ -1,0 +1,65 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: aptitude full-upgrade
+      apt:
+        cache_valid_time: "3600"
+        update_cache: "yes"
+        upgrade: "full"
+
+    - name: apt-key add
+      apt_key:
+        url: "{{ item.url }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", url: "https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public" }
+
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+        update_cache: "no"
+      with_items:
+        - { state: "present", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main" }
+        - { state: "present", repo: "ppa:alessandro-strada/ppa" }
+        - { state: "present", repo: "ppa:libretro/stable" }
+        - { state: "present", repo: "ppa:ondrej/php" }
+      register: apt_repository_result
+
+    - name: apt-get update
+      apt:
+        update_cache: "yes"
+      when: apt_repository_result | changed
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", name: "aptitude" }
+        - { state: "present", name: "dselect" }
+        - { state: "present", name: "python" }
+        - { state: "present", name: "tasksel" }
+    
+    - name: dselect update
+      shell: |
+        dselect update
+      register: dselect_update_result
+      changed_when: dselect_update_result.rc != 0
+    
+    - name: tasksel install
+      shell: |
+        tasksel install {{ item.name }}
+      with_items:
+        - { name: "openssh-server" }
+        - { name: "server" }
+        - { name: "ubuntu-gnome-desktop" }
+        - { name: "ubuntustudio-fonts" }
+        - { name: "ubuntustudio-graphics" }
+        - { name: "ubuntustudio-photography" }
+        - { name: "ubuntustudio-publishing" }
+        - { name: "ubuntustudio-video" }
+      register: tasksel_update_result
+      changed_when: tasksel_update_result.rc != 0
