@@ -1,0 +1,91 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "fcitx" }
+        - { state: "latest", name: "fcitx-chewing" }
+        - { state: "latest", name: "fcitx-frontend-gtk2" }
+        - { state: "latest", name: "fcitx-frontend-gtk3" }
+        - { state: "latest", name: "fcitx-frontend-qt4" }
+        - { state: "latest", name: "fcitx-frontend-qt5" }
+        - { state: "latest", name: "fcitx-hangul" }
+        - { state: "latest", name: "fcitx-module-cloudpinyin" }
+        - { state: "latest", name: "fcitx-mozc" }
+        - { state: "latest", name: "fcitx-pinyin" }
+        - { state: "latest", name: "fcitx-sunpinyin" }
+        - { state: "latest", name: "fcitx-table-cangjie" }
+        - { state: "latest", name: "fcitx-table-wubi" }
+        - { state: "latest", name: "fcitx-ui-classic" }
+        - { state: "latest", name: "fcitx-ui-qimpanel" }
+        - { state: "latest", name: "firefox-locale-ja" }
+        - { state: "latest", name: "firefox-locale-ko" }
+        - { state: "latest", name: "firefox-locale-zh-hans" }
+        - { state: "latest", name: "firefox-locale-zh-hant" }
+        - { state: "latest", name: "fonts-arphic-ukai" }
+        - { state: "latest", name: "fonts-arphic-uming" }
+        - { state: "latest", name: "fonts-nanum-coding" }
+        - { state: "latest", name: "fonts-takao-gothic" }
+        - { state: "latest", name: "fonts-takao-mincho" }
+        - { state: "latest", name: "fonts-unfonts-core" }
+        - { state: "latest", name: "gimp-help-en" }
+        - { state: "latest", name: "gimp-help-ja" }
+        - { state: "latest", name: "gimp-help-ko" }
+        - { state: "latest", name: "gnome-getting-started-docs-ja" }
+        - { state: "latest", name: "gnome-getting-started-docs-ko" }
+        - { state: "latest", name: "gnome-getting-started-docs-zh-hk" }
+        - { state: "latest", name: "gnome-getting-started-docs-zh-tw" }
+        - { state: "latest", name: "hunspell-en-au" }
+        - { state: "latest", name: "hunspell-en-ca" }
+        - { state: "latest", name: "hunspell-en-gb" }
+        - { state: "latest", name: "hunspell-en-za" }
+        - { state: "latest", name: "hunspell-ko" }
+        - { state: "latest", name: "hyphen-en-ca" }
+        - { state: "latest", name: "hyphen-en-gb" }
+        - { state: "latest", name: "ibus" }
+        - { state: "latest", name: "ibus-chewing" }
+        - { state: "latest", name: "ibus-hangul" }
+        - { state: "latest", name: "ibus-mozc" }
+        - { state: "latest", name: "ibus-sunpinyin" }
+        - { state: "latest", name: "ibus-table" }
+        - { state: "latest", name: "ibus-table-cangjie3" }
+        - { state: "latest", name: "ibus-table-cangjie5" }
+        - { state: "latest", name: "ibus-table-quick-classic" }
+        - { state: "latest", name: "ibus-table-quick5" }
+        - { state: "latest", name: "ibus-table-wubi" }
+        - { state: "latest", name: "kde-config-fcitx" }
+        - { state: "latest", name: "language-pack-gnome-ja" }
+        - { state: "latest", name: "language-pack-gnome-ko" }
+        - { state: "latest", name: "language-pack-gnome-zh-hans" }
+        - { state: "latest", name: "language-pack-gnome-zh-hant" }
+        - { state: "latest", name: "language-pack-ja" }
+        - { state: "latest", name: "language-pack-ko" }
+        - { state: "latest", name: "language-pack-zh-hans" }
+        - { state: "latest", name: "language-pack-zh-hant" }
+        - { state: "latest", name: "language-selector-gnome" }
+        - { state: "latest", name: "libreoffice-help-en-gb" }
+        - { state: "latest", name: "libreoffice-help-ja" }
+        - { state: "latest", name: "libreoffice-help-ko" }
+        - { state: "latest", name: "libreoffice-help-zh-cn" }
+        - { state: "latest", name: "libreoffice-help-zh-tw" }
+        - { state: "latest", name: "libreoffice-l10n-en-gb" }
+        - { state: "latest", name: "libreoffice-l10n-en-za" }
+        - { state: "latest", name: "libreoffice-l10n-ja" }
+        - { state: "latest", name: "libreoffice-l10n-ko" }
+        - { state: "latest", name: "libreoffice-l10n-zh-cn" }
+        - { state: "latest", name: "libreoffice-l10n-zh-tw" }
+        - { state: "latest", name: "mythes-en-au" }
+        - { state: "latest", name: "thunderbird-locale-en" }
+        - { state: "latest", name: "thunderbird-locale-en-gb" }
+        - { state: "latest", name: "thunderbird-locale-en-us" }
+        - { state: "latest", name: "thunderbird-locale-ja" }
+        - { state: "latest", name: "thunderbird-locale-ko" }
+        - { state: "latest", name: "thunderbird-locale-zh-cn" }
+        - { state: "latest", name: "thunderbird-locale-zh-hans" }
+        - { state: "latest", name: "thunderbird-locale-zh-hant" }
+        - { state: "latest", name: "thunderbird-locale-zh-tw" }

@@ -18,6 +18,7 @@
         - { state: "latest", name: "aptitude" }
         - { state: "latest", name: "debian-archive-keyring" }
         - { state: "latest", name: "dselect" }
+        - { state: "latest", name: "linux-signed-generic" }
         - { state: "latest", name: "python" }
         - { state: "latest", name: "tasksel" }
     

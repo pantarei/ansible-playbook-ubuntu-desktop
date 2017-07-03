@@ -2,6 +2,10 @@
 
 - include: setup-hosts.yml
 
+- include: setup-packages.yml
+
+- include: setup-multilingual.yml
+
 - include: gnome-shell-install.yml
 - include: google-drive-ocamlfuse-install.yml
 - include: hipchat-install.yml
