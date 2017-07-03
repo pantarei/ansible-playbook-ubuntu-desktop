@@ -14,10 +14,10 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", name: "aptitude" }
-        - { state: "present", name: "dselect" }
-        - { state: "present", name: "python" }
-        - { state: "present", name: "tasksel" }
+        - { state: "latest", name: "aptitude" }
+        - { state: "latest", name: "dselect" }
+        - { state: "latest", name: "python" }
+        - { state: "latest", name: "tasksel" }
     
     - name: dselect update
       shell: |

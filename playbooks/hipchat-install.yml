@@ -22,4 +22,4 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", name: "hipchat4" }
+        - { state: "latest", name: "hipchat4" }

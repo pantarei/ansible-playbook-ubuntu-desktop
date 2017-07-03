@@ -15,4 +15,4 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", name: "google-drive-ocamlfuse" }
+        - { state: "latest", name: "google-drive-ocamlfuse" }
