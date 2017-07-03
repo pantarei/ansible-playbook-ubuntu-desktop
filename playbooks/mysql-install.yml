@@ -1,0 +1,44 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "mysql-server" }
+
+    - name: start service
+      service:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { name: "mysql", state: "started" }
+      register: start_service_result
+
+    - name: disable mysqsl anonymous access
+      shell: |
+        mysql -NBe "DELETE FROM mysql.user WHERE User = ''"
+      when:
+        - start_service_result.results[0].state == "started"
+      register: disable_anonymous_access_result
+      changed_when: disable_anonymous_access_result.rc != 0
+      ignore_errors: yes
+
+    - name: disable mysql root remote access
+      shell: |
+        mysql -NBe "DELETE FROM mysql.user WHERE User = 'root' AND Host <> 'localhost'"
+      when:
+        - start_service_result.results[0].state == "started"
+      register: disable_root_remote_access_result
+      changed_when: disable_root_remote_access_result.rc != 0
+      ignore_errors: yes
+
+    - name: enable service
+      service:
+        name: "{{ item.name }}"
+        enabled: "{{ item.enabled }}"
+      with_items:
+        - { name: "mysql", enabled: "yes" }

@@ -14,7 +14,9 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
+        - { state: "latest", name: "debian-archive-keyring" }
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "python" }
         - { state: "latest", name: "tasksel" }
