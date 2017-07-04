@@ -9,6 +9,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "bmon" }
+        - { state: "latest", name: "chromium-browser" }
         - { state: "latest", name: "colordiff" }
         - { state: "latest", name: "composer" }
         - { state: "latest", name: "dia" }
