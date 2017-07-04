@@ -31,8 +31,10 @@
         - { state: "latest", name: "gnucash" }
         - { state: "latest", name: "gufw" }
         - { state: "latest", name: "htop" }
+        - { state: "latest", name: "ideviceinstaller" }
         - { state: "latest", name: "inkscape" }
         - { state: "latest", name: "inkscape-open-symbols" }
+        - { state: "latest", name: "libimobiledevice-utils" }
         - { state: "latest", name: "mcrypt" }
         - { state: "latest", name: "network-manager-openvpn-gnome" }
         - { state: "latest", name: "nmap" }
