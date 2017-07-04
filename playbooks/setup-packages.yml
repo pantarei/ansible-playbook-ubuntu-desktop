@@ -35,6 +35,7 @@
         - { state: "latest", name: "inkscape" }
         - { state: "latest", name: "inkscape-open-symbols" }
         - { state: "latest", name: "libimobiledevice-utils" }
+        - { state: "latest", name: "libimobiledevice6" }
         - { state: "latest", name: "mcrypt" }
         - { state: "latest", name: "network-manager-openvpn-gnome" }
         - { state: "latest", name: "nmap" }
