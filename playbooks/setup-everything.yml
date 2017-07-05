@@ -14,3 +14,4 @@
 - include: php-install.yml
 - include: retroarch-install.yml
 - include: varnish-install.yml
+- include: virtualbox-install.yml
