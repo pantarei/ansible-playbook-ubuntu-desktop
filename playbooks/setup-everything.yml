@@ -6,6 +6,7 @@
 
 - include: setup-multilingual.yml
 
+- include: certbot-install.yml
 - include: fprint-install.yml
 - include: gnome-shell-install.yml
 - include: google-drive-ocamlfuse-install.yml
