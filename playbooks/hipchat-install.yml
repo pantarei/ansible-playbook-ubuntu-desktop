@@ -23,6 +23,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "hipchat4" }
+        - { state: "latest", name: "libssl1.0.0" }
 
     - name: fix libssl.so and libcrypto.so
       file:
