@@ -23,3 +23,17 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "hipchat4" }
+
+    - name: fix libssl.so and libcrypto.so
+      file:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        owner: "root"
+        group: "root"
+        state: "link"
+        force: "yes"
+      with_items:
+        - { src: "libcrypto.so.1.0.2", dest: "/opt/HipChat4/lib/libcrypto.so" }
+        - { src: "libssl.so.1.0.2", dest: "/opt/HipChat4/lib/libssl.so" }
+        - { src: "/usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.2", dest: "/opt/HipChat4/lib/libcrypto.so.1.0.2" }
+        - { src: "/usr/lib/x86_64-linux-gnu/libssl.so.1.0.2", dest: "/opt/HipChat4/lib/libssl.so.1.0.2" }
