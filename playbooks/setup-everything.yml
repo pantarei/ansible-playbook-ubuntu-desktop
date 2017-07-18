@@ -2,7 +2,18 @@
 
 - include: setup-hosts.yml
 
+- include: setup-packages.yml
+
+- include: setup-multilingual.yml
+
+- include: certbot-install.yml
+- include: fprint-install.yml
+- include: gnome-shell-install.yml
 - include: google-drive-ocamlfuse-install.yml
 - include: hipchat-install.yml
-- include: retroarch-install.yml
+- include: memcache-install.yml
+- include: mysql-install.yml
 - include: php-install.yml
+- include: retroarch-install.yml
+- include: varnish-install.yml
+- include: virtualbox-install.yml

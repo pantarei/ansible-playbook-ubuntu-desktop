@@ -14,17 +14,20 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", name: "aptitude" }
-        - { state: "present", name: "dselect" }
-        - { state: "present", name: "python" }
-        - { state: "present", name: "tasksel" }
-    
+        - { state: "latest", name: "apt-transport-https" }
+        - { state: "latest", name: "aptitude" }
+        - { state: "latest", name: "debian-archive-keyring" }
+        - { state: "latest", name: "dselect" }
+        - { state: "latest", name: "linux-generic" }
+        - { state: "latest", name: "python" }
+        - { state: "latest", name: "tasksel" }
+
     - name: dselect update
       shell: |
         dselect update
       register: dselect_update_result
       changed_when: dselect_update_result.rc != 0
-    
+
     - name: tasksel install
       shell: |
         tasksel install {{ item.name }}
@@ -39,3 +42,16 @@
         - { name: "ubuntustudio-video" }
       register: tasksel_update_result
       changed_when: tasksel_update_result.rc != 0
+
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "ppa:graphics-drivers/ppa" }
+
+    - name: ubuntu-drivers autoinstall
+      shell: |
+        ubuntu-drivers autoinstall
+      register: ubuntu_drivers_autoinstall_result
+      changed_when: ubuntu_drivers_autoinstall_result.rc != 0

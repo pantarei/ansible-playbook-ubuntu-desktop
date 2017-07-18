@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "memcached" }
+
+    - name: start service
+      service:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { name: "memcached", state: "started" }
+
+    - name: enable service
+      service:
+        name: "{{ item.name }}"
+        enabled: "{{ item.enabled }}"
+      with_items:
+        - { name: "memcached", enabled: "yes" }

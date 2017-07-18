@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "varnish" }
+
+    - name: start service
+      service:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { name: "varnish", state: "started" }
+
+    - name: enable service
+      service:
+        name: "{{ item.name }}"
+        enabled: "{{ item.enabled }}"
+      with_items:
+        - { name: "varnish", enabled: "yes" }

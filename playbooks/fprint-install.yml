@@ -8,11 +8,14 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:alessandro-strada/ppa" }
+        - { state: "present", repo: "ppa:fingerprint/fprint" }
 
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "google-drive-ocamlfuse" }
+        - { state: "latest", name: "fprint-demo" }
+        - { state: "latest", name: "fprintd" }
+        - { state: "latest", name: "libfprint0" }
+        - { state: "latest", name: "libpam-fprintd" }

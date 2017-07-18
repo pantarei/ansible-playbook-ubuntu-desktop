@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "gnome-shell-extension*" }
