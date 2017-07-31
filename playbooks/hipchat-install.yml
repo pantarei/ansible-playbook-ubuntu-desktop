@@ -34,7 +34,7 @@
         state: "link"
         force: "yes"
       with_items:
-        - { src: "libcrypto.so.1.0.2", dest: "/opt/HipChat4/lib/libcrypto.so" }
-        - { src: "libssl.so.1.0.2", dest: "/opt/HipChat4/lib/libssl.so" }
-        - { src: "/usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.2", dest: "/opt/HipChat4/lib/libcrypto.so.1.0.2" }
-        - { src: "/usr/lib/x86_64-linux-gnu/libssl.so.1.0.2", dest: "/opt/HipChat4/lib/libssl.so.1.0.2" }
+        - { src: "/lib/x86_64-linux-gnu/libcrypto.so.1.0.0", dest: "/opt/HipChat4/lib/libcrypto.so.1.0.0" }
+        - { src: "/lib/x86_64-linux-gnu/libssl.so.1.0.0", dest: "/opt/HipChat4/lib/libssl.so.1.0.0" }
+        - { src: "libcrypto.so.1.0.0", dest: "/opt/HipChat4/lib/libcrypto.so" }
+        - { src: "libssl.so.1.0.0", dest: "/opt/HipChat4/lib/libssl.so" }
