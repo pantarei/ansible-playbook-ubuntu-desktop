@@ -8,6 +8,7 @@
 
 - include: certbot-install.yml
 - include: fprint-install.yml
+- include: git-install.yml
 - include: gnome-shell-install.yml
 - include: google-drive-ocamlfuse-install.yml
 - include: hipchat-install.yml
