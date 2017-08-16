@@ -14,6 +14,7 @@
 - include: hipchat-install.yml
 - include: memcache-install.yml
 - include: mysql-install.yml
+- include: nodejs-install.yml
 - include: php-install.yml
 - include: retroarch-install.yml
 - include: varnish-install.yml
