@@ -6,6 +6,7 @@
 
 - include: setup-multilingual.yml
 
+- include: ansible-install.yml
 - include: certbot-install.yml
 - include: fprint-install.yml
 - include: git-install.yml
