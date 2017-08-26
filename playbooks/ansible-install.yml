@@ -16,3 +16,10 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "ansible" }
+
+    - name: pip install
+      pip:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", name: "ansible-container" }

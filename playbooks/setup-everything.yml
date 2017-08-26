@@ -8,6 +8,7 @@
 
 - include: ansible-install.yml
 - include: certbot-install.yml
+- include: docker-install.yml
 - include: fprint-install.yml
 - include: git-install.yml
 - include: gnome-shell-install.yml
