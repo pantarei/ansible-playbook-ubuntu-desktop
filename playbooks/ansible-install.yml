@@ -18,8 +18,7 @@
         - { state: "latest", name: "ansible" }
 
     - name: pip install
-      pip:
-        name: "{{ item.name }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "present", name: "ansible-container" }
+      shell: |
+        pip install --upgrade --upgrade-strategy only-if-needed ansible-container[docker,k8s]
+      register: pip_install_result
+      changed_when: pip_install_result.rc != 0
