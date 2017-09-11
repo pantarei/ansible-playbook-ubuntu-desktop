@@ -3,11 +3,11 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: aptitude full-upgrade
+    - name: apt-get dist-upgrade
       apt:
         cache_valid_time: "3600"
         update_cache: "yes"
-        upgrade: "full"
+        upgrade: "dist"
 
     - name: apt install
       apt:
@@ -17,6 +17,7 @@
         - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
         - { state: "latest", name: "ca-certificates" }
+        - { state: "latest", name: "debian-keyring" }
         - { state: "latest", name: "debian-archive-keyring" }
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "linux-generic" }

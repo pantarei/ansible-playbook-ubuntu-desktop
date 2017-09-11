@@ -28,9 +28,11 @@
       pip:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
+        extra_args: "--upgrade"
       with_items:
+        - { state: "absent", name: "docker-py" }
+        - { state: "present", name: "docker" }
         - { state: "present", name: "docker-compose" }
-        - { state: "present", name: "docker-py" }
 
     - name: enable service
       service:
