@@ -8,17 +8,18 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:ansible/ansible" }
+        - { state: "absent", repo: "ppa:ansible/ansible" }
 
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "ansible" }
+        - { state: "absent", name: "ansible" }
 
     - name: pip install
       shell: |
-        pip install --upgrade --upgrade-strategy only-if-needed ansible-container[docker,k8s]
+        pip install --upgrade git+git://github.com/ansible/ansible.git@stable-2.4
+        pip install --upgrade ansible-container[docker,k8s]
       register: pip_install_result
       changed_when: pip_install_result.rc != 0
