@@ -9,6 +9,7 @@
 - import_playbook: ansible-install.yml
 - import_playbook: certbot-install.yml
 - import_playbook: docker-install.yml
+- import_playbook: firefox-install.yml
 - import_playbook: fprint-install.yml
 - import_playbook: git-install.yml
 - import_playbook: gnome-shell-install.yml

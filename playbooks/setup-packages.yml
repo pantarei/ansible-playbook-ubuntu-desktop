@@ -17,7 +17,6 @@
         - { state: "latest", name: "dos2unix" }
         - { state: "latest", name: "doxygen" }
         - { state: "latest", name: "filezilla" }
-        - { state: "latest", name: "firefox" }
         - { state: "latest", name: "flashplugin-installer" }
         - { state: "latest", name: "fonts-noto" }
         - { state: "latest", name: "fonts-noto-cjk" }
