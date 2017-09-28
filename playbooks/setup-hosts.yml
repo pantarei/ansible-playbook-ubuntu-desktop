@@ -17,11 +17,12 @@
         - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
         - { state: "latest", name: "ca-certificates" }
-        - { state: "latest", name: "debian-keyring" }
         - { state: "latest", name: "debian-archive-keyring" }
+        - { state: "latest", name: "debian-keyring" }
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "linux-generic" }
-        - { state: "latest", name: "python" }
+        - { state: "latest", name: "python-dev" }
+        - { state: "latest", name: "python-minimal" }
         - { state: "latest", name: "python-pip" }
         - { state: "latest", name: "tasksel" }
 
