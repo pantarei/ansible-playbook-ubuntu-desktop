@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:fingerprint/fprint" }
+        - { state: "absent", repo: "ppa:fingerprint/fprint" }
 
     - name: apt install
       apt:

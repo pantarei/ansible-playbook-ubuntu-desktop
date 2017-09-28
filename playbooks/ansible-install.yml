@@ -19,7 +19,7 @@
 
     - name: pip install
       shell: |
-        pip install --upgrade git+git://github.com/ansible/ansible.git@stable-2.4
+        pip install --upgrade ansible
         pip install --upgrade ansible-container[docker,k8s]
       register: pip_install_result
       changed_when: pip_install_result.rc != 0

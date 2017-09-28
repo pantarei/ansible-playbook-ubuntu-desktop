@@ -15,7 +15,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb https://deb.nodesource.com/node_8.x zesty main" }
+        - { state: "present", repo: "deb https://deb.nodesource.com/node_8.x artful main" }
 
     - name: apt install
       apt:

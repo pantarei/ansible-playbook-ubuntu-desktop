@@ -11,7 +11,7 @@ Requirements
 
 This playbook require Ansible 2.0 or higher.
 
-This playbook was designed for Ubuntu GNOME 17.04.
+This playbook was designed for Ubuntu GNOME 17.10.
 
 Quick Start
 -----------

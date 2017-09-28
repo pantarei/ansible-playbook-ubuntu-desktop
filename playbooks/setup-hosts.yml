@@ -33,16 +33,11 @@
 
     - name: tasksel install
       shell: |
-        tasksel install {{ item.name }}
+        DEBIAN_FRONTEND=noninteractive tasksel install {{ item.name }}
       with_items:
         - { name: "openssh-server" }
         - { name: "server" }
-        - { name: "ubuntu-gnome-desktop" }
-        - { name: "ubuntustudio-fonts" }
-        - { name: "ubuntustudio-graphics" }
-        - { name: "ubuntustudio-photography" }
-        - { name: "ubuntustudio-publishing" }
-        - { name: "ubuntustudio-video" }
+        - { name: "ubuntu-desktop" }
       register: tasksel_update_result
       changed_when: tasksel_update_result.rc != 0
 

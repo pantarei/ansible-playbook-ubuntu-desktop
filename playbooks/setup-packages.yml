@@ -9,6 +9,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "bmon" }
+        - { state: "latest", name: "chrome-gnome-shell" }
         - { state: "latest", name: "chromium-browser" }
         - { state: "latest", name: "colordiff" }
         - { state: "latest", name: "composer" }
@@ -26,7 +27,10 @@
         - { state: "latest", name: "gimp" }
         - { state: "latest", name: "git" }
         - { state: "latest", name: "git-flow" }
+        - { state: "latest", name: "gnome-shell-extensions" }
         - { state: "latest", name: "gnome-system-tools" }
+        - { state: "latest", name: "gnome-themes-standard" }
+        - { state: "latest", name: "gnome-tweak-tool" }
         - { state: "latest", name: "gnucash" }
         - { state: "latest", name: "gufw" }
         - { state: "latest", name: "htop" }
