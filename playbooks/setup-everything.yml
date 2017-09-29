@@ -7,17 +7,17 @@
 #- import_playbook: setup-multilingual.yml
 
 - import_playbook: ansible-install.yml
-- import_playbook: certbot-install.yml
+#- import_playbook: certbot-install.yml
 #- import_playbook: docker-install.yml
 - import_playbook: firefox-install.yml
 - import_playbook: fprint-install.yml
 - import_playbook: git-install.yml
 - import_playbook: google-drive-ocamlfuse-install.yml
 #- import_playbook: hipchat-install.yml
-- import_playbook: memcache-install.yml
-- import_playbook: mysql-install.yml
-- import_playbook: nodejs-install.yml
-- import_playbook: php-install.yml
+#- import_playbook: memcache-install.yml
+#- import_playbook: mysql-install.yml
+#- import_playbook: nodejs-install.yml
+#- import_playbook: php-install.yml
 #- import_playbook: retroarch-install.yml
-- import_playbook: varnish-install.yml
+#- import_playbook: varnish-install.yml
 #- import_playbook: virtualbox-install.yml

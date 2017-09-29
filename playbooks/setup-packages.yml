@@ -19,21 +19,46 @@
         - { state: "latest", name: "doxygen" }
         - { state: "latest", name: "filezilla" }
         - { state: "latest", name: "flashplugin-installer" }
+        - { state: "latest", name: "fonts-arphic-ukai" }
+        - { state: "latest", name: "fonts-arphic-uming" }
+        - { state: "latest", name: "fonts-nanum-coding" }
         - { state: "latest", name: "fonts-noto" }
         - { state: "latest", name: "fonts-noto-cjk" }
+        - { state: "latest", name: "fonts-noto-cjk-extra" }
         - { state: "latest", name: "fonts-noto-hinted" }
         - { state: "latest", name: "fonts-noto-mono" }
         - { state: "latest", name: "fonts-noto-unhinted" }
+        - { state: "latest", name: "fonts-takao-gothic" }
+        - { state: "latest", name: "fonts-takao-mincho" }
+        - { state: "latest", name: "fonts-unfonts-core" }
         - { state: "latest", name: "gimp" }
+        - { state: "latest", name: "gir1.2-atk-1.0" }
+        - { state: "latest", name: "gir1.2-clutter-1.0" }
+        - { state: "latest", name: "gir1.2-gdkpixbuf-2.0" }
+        - { state: "latest", name: "gir1.2-glib-2.0" }
+        - { state: "latest", name: "gir1.2-gmenu-3.0" }
+        - { state: "latest", name: "gir1.2-gtk-3.0" }
+        - { state: "latest", name: "gir1.2-gtop-2.0" }
+        - { state: "latest", name: "gir1.2-mutter-1" }
+        - { state: "latest", name: "gir1.2-pango-1.0" }
         - { state: "latest", name: "git" }
         - { state: "latest", name: "git-flow" }
-        - { state: "latest", name: "gnome-shell-extensions" }
         - { state: "latest", name: "gnome-system-tools" }
-        - { state: "latest", name: "gnome-themes-standard" }
         - { state: "latest", name: "gnome-tweak-tool" }
         - { state: "latest", name: "gnucash" }
         - { state: "latest", name: "gufw" }
         - { state: "latest", name: "htop" }
+        - { state: "latest", name: "ibus" }
+        - { state: "latest", name: "ibus-chewing" }
+        - { state: "latest", name: "ibus-hangul" }
+        - { state: "latest", name: "ibus-mozc" }
+        - { state: "latest", name: "ibus-sunpinyin" }
+        - { state: "latest", name: "ibus-table" }
+        - { state: "latest", name: "ibus-table-cangjie3" }
+        - { state: "latest", name: "ibus-table-cangjie5" }
+        - { state: "latest", name: "ibus-table-quick-classic" }
+        - { state: "latest", name: "ibus-table-quick5" }
+        - { state: "latest", name: "ibus-table-wubi" }
         - { state: "latest", name: "ideviceinstaller" }
         - { state: "latest", name: "inkscape" }
         - { state: "latest", name: "inkscape-open-symbols" }
