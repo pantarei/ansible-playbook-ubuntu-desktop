@@ -2,6 +2,8 @@
 
 - import_playbook: setup-hosts.yml
 
+- import_playbook: setup-hibernate.yml
+
 - import_playbook: setup-packages.yml
 
 - import_playbook: setup-multilingual.yml
