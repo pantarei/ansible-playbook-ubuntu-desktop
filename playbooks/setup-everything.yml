@@ -22,4 +22,4 @@
 #- import_playbook: php-install.yml
 #- import_playbook: retroarch-install.yml
 #- import_playbook: varnish-install.yml
-#- import_playbook: virtualbox-install.yml
+- import_playbook: virtualbox-install.yml
