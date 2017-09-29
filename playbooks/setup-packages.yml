@@ -8,6 +8,7 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "latest", name: "bleachbit" }
         - { state: "latest", name: "bmon" }
         - { state: "latest", name: "chrome-gnome-shell" }
         - { state: "latest", name: "chromium-browser" }
