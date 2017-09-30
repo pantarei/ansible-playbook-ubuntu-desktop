@@ -15,7 +15,7 @@
 - import_playbook: fprint-install.yml
 - import_playbook: git-install.yml
 - import_playbook: google-drive-ocamlfuse-install.yml
-#- import_playbook: hipchat-install.yml
+- import_playbook: hipchat-install.yml
 #- import_playbook: memcache-install.yml
 #- import_playbook: mysql-install.yml
 #- import_playbook: nodejs-install.yml
