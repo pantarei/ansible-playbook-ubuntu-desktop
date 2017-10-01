@@ -72,6 +72,7 @@
         - { state: "latest", name: "nmap" }
         - { state: "latest", name: "nmon" }
         - { state: "latest", name: "ntp" }
+        - { state: "latest", name: "openshot" }
         - { state: "latest", name: "openvpn" }
         - { state: "latest", name: "p7zip" }
         - { state: "latest", name: "p7zip-full" }
