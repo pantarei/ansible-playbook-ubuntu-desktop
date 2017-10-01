@@ -29,8 +29,6 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", name: "docker-py" }
-        - { state: "present", name: "docker" }
         - { state: "present", name: "docker-compose" }
 
     - name: enable service

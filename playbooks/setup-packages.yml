@@ -9,6 +9,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "bleachbit" }
+        - { state: "latest", name: "blender" }
         - { state: "latest", name: "bmon" }
         - { state: "latest", name: "chrome-gnome-shell" }
         - { state: "latest", name: "chromium-browser" }
@@ -48,6 +49,7 @@
         - { state: "latest", name: "gnome-tweak-tool" }
         - { state: "latest", name: "gnucash" }
         - { state: "latest", name: "gufw" }
+        - { state: "latest", name: "handbrake" }
         - { state: "latest", name: "htop" }
         - { state: "latest", name: "ibus" }
         - { state: "latest", name: "ibus-chewing" }
