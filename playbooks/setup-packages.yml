@@ -48,7 +48,6 @@
         - { state: "latest", name: "gnome-system-tools" }
         - { state: "latest", name: "gnome-tweak-tool" }
         - { state: "latest", name: "gnucash" }
-        - { state: "latest", name: "gtk3-nocsd" }
         - { state: "latest", name: "gufw" }
         - { state: "latest", name: "handbrake" }
         - { state: "latest", name: "htop" }
