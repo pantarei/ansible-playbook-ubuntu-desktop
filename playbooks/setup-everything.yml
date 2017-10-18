@@ -18,7 +18,7 @@
 - import_playbook: hipchat-install.yml
 - import_playbook: memcache-install.yml
 - import_playbook: mysql-install.yml
-#- import_playbook: nodejs-install.yml
+- import_playbook: nodejs-install.yml
 - import_playbook: php-install.yml
 #- import_playbook: retroarch-install.yml
 - import_playbook: varnish-install.yml
