@@ -16,3 +16,4 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "git" }
+        - { state: "latest", name: "git-flow" }
