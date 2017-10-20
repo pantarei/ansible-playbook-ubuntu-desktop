@@ -1,14 +1,12 @@
 ---
 
 - import_playbook: setup-hosts.yml
-
 - import_playbook: setup-hibernate.yml
-
 - import_playbook: setup-packages.yml
-
 - import_playbook: setup-multilingual.yml
 
 - import_playbook: ansible-install.yml
+- import_playbook: apache2-install.yml
 - import_playbook: certbot-install.yml
 - import_playbook: docker-install.yml
 - import_playbook: firefox-install.yml

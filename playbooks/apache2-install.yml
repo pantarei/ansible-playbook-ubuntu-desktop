@@ -1,0 +1,66 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "ppa:ondrej/apache2" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", name: "apache2-mpm-itk" }
+        - { state: "absent", name: "apache2-mpm-prefork" }
+        - { state: "absent", name: "apache2-mpm-worker" }
+        - { state: "absent", name: "apache2-suexec-custom" }
+        - { state: "absent", name: "libapache2-mod-fastcgi" }
+        - { state: "absent", name: "libapache2-mod-fcgid" }
+        - { state: "absent", name: "libapache2-mod-php5" }
+        - { state: "absent", name: "libapache2-mod-php5filter" }
+        - { state: "absent", name: "libapache2-mod-rpaf" }
+        - { state: "latest", name: "apache2" }
+        - { state: "latest", name: "apache2-bin" }
+        - { state: "latest", name: "apache2-data" }
+        - { state: "latest", name: "apache2-doc" }
+        - { state: "latest", name: "apache2-utils" }
+
+    - name: a2enmod
+      apache2_module:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", name: "mpm_prefork" }
+        - { state: "absent", name: "mpm_worker" }
+        - { state: "present", name: "access_compat" }
+        - { state: "present", name: "actions" }
+        - { state: "present", name: "alias" }
+        - { state: "present", name: "auth_basic" }
+        - { state: "present", name: "authn_core" }
+        - { state: "present", name: "authn_file" }
+        - { state: "present", name: "authz_core" }
+        - { state: "present", name: "authz_host" }
+        - { state: "present", name: "authz_user" }
+        - { state: "present", name: "autoindex" }
+        - { state: "present", name: "deflate" }
+        - { state: "present", name: "dir" }
+        - { state: "present", name: "env" }
+        - { state: "present", name: "expires" }
+        - { state: "present", name: "filter" }
+        - { state: "present", name: "headers" }
+        - { state: "present", name: "mime" }
+        - { state: "present", name: "mpm_event" }
+        - { state: "present", name: "negotiation" }
+        - { state: "present", name: "proxy" }
+        - { state: "present", name: "proxy_fcgi" }
+        - { state: "present", name: "proxy_http" }
+        - { state: "present", name: "remoteip" }
+        - { state: "present", name: "rewrite" }
+        - { state: "present", name: "setenvif" }
+        - { state: "present", name: "ssl" }
+        - { state: "present", name: "status" }
