@@ -15,7 +15,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb https://download.docker.com/linux/ubuntu zesty stable" }
+        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable" }
 
     - name: apt install
       apt:
@@ -23,13 +23,6 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "docker-ce" }
-
-    - name: pip install
-      pip:
-        name: "{{ item.name }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "present", name: "docker-compose" }
 
     - name: enable service
       service:
