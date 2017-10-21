@@ -84,5 +84,7 @@
         - { state: "latest", name: "thunderbird" }
         - { state: "latest", name: "thunderbird-gnome-support" }
         - { state: "latest", name: "tree" }
+        - { state: "latest", name: "ubuntu-restricted-addons" }
+        - { state: "latest", name: "ubuntu-restricted-extras" }
         - { state: "latest", name: "unrar" }
         - { state: "latest", name: "vlc" }
