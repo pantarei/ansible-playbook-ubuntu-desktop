@@ -15,7 +15,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable" }
+        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable" }
 
     - name: apt install
       apt:
