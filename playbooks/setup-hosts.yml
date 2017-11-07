@@ -54,3 +54,8 @@
         DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result.rc != 0
+
+    - name: fix NetworkManager
+      shell: |
+        rm -rf /etc/netplan/01-netcfg.yaml
+        rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
