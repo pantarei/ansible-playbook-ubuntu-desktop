@@ -29,8 +29,14 @@
         replace: 'HandleLidSwitch=hibernate'
       register: replace_result
 
-    - name: service restart
+    - name: service systemd-logind.service restart
       service:
         name: "systemd-logind.service"
+        state: "restarted"
+      when: replace_result | changed
+    
+    - name: service gdm3 restart
+      service:
+        name: "gdm3"
         state: "restarted"
       when: replace_result | changed
