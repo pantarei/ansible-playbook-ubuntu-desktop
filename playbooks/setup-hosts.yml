@@ -28,7 +28,7 @@
 
     - name: dselect update
       shell: |
-        dselect update
+        DEBIAN_FRONTEND=noninteractive dselect update
       register: dselect_update_result
       changed_when: dselect_update_result.rc != 0
 
@@ -51,6 +51,6 @@
 
     - name: ubuntu-drivers autoinstall
       shell: |
-        ubuntu-drivers autoinstall
+        DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result.rc != 0
