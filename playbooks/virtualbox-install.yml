@@ -15,12 +15,14 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb http://download.virtualbox.org/virtualbox/debian zesty contrib" }
+        - { state: "absent", repo: "deb http://download.virtualbox.org/virtualbox/debian zesty contrib" }
+        - { state: "present", repo: "deb http://download.virtualbox.org/virtualbox/debian artful contrib" }
 
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "absent", name: "virtualbox-5.1" }
         - { state: "latest", name: "dkms" }
-        - { state: "latest", name: "virtualbox-5.1" }
+        - { state: "latest", name: "virtualbox-5.2" }

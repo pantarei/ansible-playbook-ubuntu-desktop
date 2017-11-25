@@ -8,14 +8,11 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "ppa:fingerprint/fprint" }
+        - { state: "present", repo: "ppa:ubuntu-mozilla-daily/firefox-aurora" }
 
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "fprint-demo" }
-        - { state: "latest", name: "fprintd" }
-        - { state: "latest", name: "libfprint0" }
-        - { state: "latest", name: "libpam-fprintd" }
+        - { state: "latest", name: "firefox" }

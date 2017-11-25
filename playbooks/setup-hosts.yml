@@ -3,11 +3,11 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: aptitude full-upgrade
+    - name: apt-get dist-upgrade
       apt:
         cache_valid_time: "3600"
         update_cache: "yes"
-        upgrade: "full"
+        upgrade: "dist"
 
     - name: apt install
       apt:
@@ -16,30 +16,29 @@
       with_items:
         - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
+        - { state: "latest", name: "ca-certificates" }
         - { state: "latest", name: "debian-archive-keyring" }
+        - { state: "latest", name: "debian-keyring" }
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "linux-generic" }
-        - { state: "latest", name: "python" }
+        - { state: "latest", name: "python-dev" }
+        - { state: "latest", name: "python-minimal" }
+        - { state: "latest", name: "python-pip" }
         - { state: "latest", name: "tasksel" }
 
     - name: dselect update
       shell: |
-        dselect update
+        DEBIAN_FRONTEND=noninteractive dselect update
       register: dselect_update_result
       changed_when: dselect_update_result.rc != 0
 
     - name: tasksel install
       shell: |
-        tasksel install {{ item.name }}
+        DEBIAN_FRONTEND=noninteractive tasksel install {{ item.name }}
       with_items:
         - { name: "openssh-server" }
         - { name: "server" }
-        - { name: "ubuntu-gnome-desktop" }
-        - { name: "ubuntustudio-fonts" }
-        - { name: "ubuntustudio-graphics" }
-        - { name: "ubuntustudio-photography" }
-        - { name: "ubuntustudio-publishing" }
-        - { name: "ubuntustudio-video" }
+        - { name: "ubuntu-desktop" }
       register: tasksel_update_result
       changed_when: tasksel_update_result.rc != 0
 
@@ -52,6 +51,13 @@
 
     - name: ubuntu-drivers autoinstall
       shell: |
-        ubuntu-drivers autoinstall
+        DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result.rc != 0
+
+    - name: fix NetworkManager
+      shell: |
+        rm -rf /etc/netplan/01-netcfg.yaml
+        rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
+      register: fix_networkmanager_result
+      changed_when: fix_networkmanager_result.rc != 0

@@ -1,17 +1,17 @@
-Ansible Playbook for Ubuntu GNOME
+Ansible Playbook for Ubuntu Desktop
 =================================
 
-[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-playbook-ubuntu-gnome.svg)](https://github.com/pantarei/ansible-playbook-ubuntu-gnome)
-[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-playbook-ubuntu-gnome.svg)](https://github.com/pantarei/ansible-playbook-ubuntu-gnome/blob/master/LICENSE)
+[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-playbook-ubuntu-desktop.svg)](https://github.com/pantarei/ansible-playbook-ubuntu-desktop)
+[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-playbook-ubuntu-desktop.svg)](https://github.com/pantarei/ansible-playbook-ubuntu-desktop/blob/master/LICENSE)
 
-Ansible Playbook for Ubuntu GNOME Installation.
+Ansible Playbook for Ubuntu Desktop Installation.
 
 Requirements
 ------------
 
 This playbook require Ansible 2.0 or higher.
 
-This playbook was designed for Ubuntu GNOME 17.04.
+This playbook was designed for Ubuntu Desktop 17.10.
 
 Quick Start
 -----------
@@ -34,11 +34,11 @@ There are four main steps for running a customized AIO build:
 -   Configuration *(this step is optional)*
 -   Run playbooks
 
-Start by cloning the ansible-playbook-ubuntu-gnome repository and changing into the repository root directory:
+Start by cloning the ansible-playbook-ubuntu-desktop repository and changing into the repository root directory:
 
-    $ git clone https://github.com/pantarei/ansible-playbook-ubuntu-gnome \
-        /opt/ansible-playbook-ubuntu-gnome
-    $ cd /opt/ansible-playbook-ubuntu-gnome
+    $ git clone https://github.com/pantarei/ansible-playbook-ubuntu-desktop \
+        /opt/ansible-playbook-ubuntu-desktop
+    $ cd /opt/ansible-playbook-ubuntu-desktop
 
 Next bootstrap Ansible by executing:
 
@@ -59,41 +59,12 @@ Finally, run the plabooks by executing:
 Dependencies
 ------------
 
--   [hswong3i.apache2](https://github.com/pantarei/ansible-role-apache2)
--   [hswong3i.apache2\_vhosts](https://github.com/pantarei/ansible-role-apache2-vhosts)
--   [hswong3i.apt](https://github.com/pantarei/ansible-role-apt)
--   [hswong3i.bamboo](https://github.com/pantarei/ansible-role-bamboo)
--   [hswong3i.bitbucket](https://github.com/pantarei/ansible-role-bitbucket)
--   [hswong3i.cachefilesd](https://github.com/pantarei/ansible-role-cachefilesd)
--   [hswong3i.composer](https://github.com/pantarei/ansible-role-composer)
--   [hswong3i.confluence](https://github.com/pantarei/ansible-role-confluence)
--   [hswong3i.crowd](https://github.com/pantarei/ansible-role-crowd)
--   [hswong3i.drupal](https://github.com/pantarei/ansible-role-drupal)
--   [hswong3i.fisheye](https://github.com/pantarei/ansible-role-fisheye)
--   [hswong3i.hostname](https://github.com/pantarei/ansible-role-hostname)
--   [hswong3i.java](https://github.com/pantarei/ansible-role-java)
--   [hswong3i.jira](https://github.com/pantarei/ansible-role-jira)
--   [hswong3i.locales](https://github.com/pantarei/ansible-role-locales)
--   [hswong3i.memcached](https://github.com/pantarei/ansible-role-memcached)
--   [hswong3i.mysql](https://github.com/pantarei/ansible-role-mysql)
--   [hswong3i.mysql\_connector\_java](https://github.com/pantarei/ansible-role-mysql-connector-java)
--   [hswong3i.mysql\_vhosts](https://github.com/pantarei/ansible-role-mysql-vhosts)
--   [hswong3i.nfs](https://github.com/pantarei/ansible-role-nfs)
--   [hswong3i.ntp](https://github.com/pantarei/ansible-role-ntp)
--   [hswong3i.php](https://github.com/pantarei/ansible-role-php)
--   [hswong3i.php\_vhosts](https://github.com/pantarei/ansible-role-php-vhosts)
--   [hswong3i.postgresql](https://github.com/pantarei/ansible-role-postgresql)
--   [hswong3i.postgresql\_vhosts](https://github.com/pantarei/ansible-role-postgresql-vhosts)
--   [hswong3i.tzdata](https://github.com/pantarei/ansible-role-tzdata)
--   [hswong3i.ufw](https://github.com/pantarei/ansible-role-ufw)
--   [hswong3i.usermin](https://github.com/pantarei/ansible-role-usermin)
--   [hswong3i.varnish](https://github.com/pantarei/ansible-role-varnish)
--   [hswong3i.webmin](https://github.com/pantarei/ansible-role-webmin)
+No additional dependency.
 
 License
 -------
 
--   Code released under [MIT](https://github.com/hswong3i/ansible-playbook-ubuntu-gnome/blob/master/LICENSE)
+-   Code released under [MIT](https://github.com/hswong3i/ansible-playbook-ubuntu-desktop/blob/master/LICENSE)
 -   Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 
 Author Information

@@ -1,19 +1,23 @@
 ---
 
-- include: setup-hosts.yml
+- import_playbook: setup-hosts.yml
+- import_playbook: setup-hibernate.yml
+- import_playbook: setup-packages.yml
+- import_playbook: setup-multilingual.yml
 
-- include: setup-packages.yml
-
-- include: setup-multilingual.yml
-
-- include: certbot-install.yml
-- include: fprint-install.yml
-- include: gnome-shell-install.yml
-- include: google-drive-ocamlfuse-install.yml
-- include: hipchat-install.yml
-- include: memcache-install.yml
-- include: mysql-install.yml
-- include: php-install.yml
-- include: retroarch-install.yml
-- include: varnish-install.yml
-- include: virtualbox-install.yml
+- import_playbook: ansible-install.yml
+- import_playbook: apache2-install.yml
+- import_playbook: certbot-install.yml
+- import_playbook: docker-install.yml
+- import_playbook: firefox-install.yml
+- import_playbook: fprint-install.yml
+- import_playbook: git-install.yml
+- import_playbook: google-drive-ocamlfuse-install.yml
+- import_playbook: hipchat-install.yml
+- import_playbook: memcache-install.yml
+- import_playbook: mysql-install.yml
+- import_playbook: nodejs-install.yml
+- import_playbook: php-install.yml
+- import_playbook: retroarch-install.yml
+- import_playbook: varnish-install.yml
+- import_playbook: virtualbox-install.yml

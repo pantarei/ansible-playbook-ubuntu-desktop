@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", repo: "ppa:ansible/ansible" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", name: "ansible" }
+
+    - name: pip install
+      shell: |
+        pip install --upgrade ansible
+        pip install --upgrade ansible-container[docker,k8s]
+      register: pip_install_result
+      changed_when: pip_install_result.rc != 0

@@ -30,7 +30,6 @@
         - { state: "latest", name: "php5.6-json" }
         - { state: "latest", name: "php5.6-ldap" }
         - { state: "latest", name: "php5.6-mbstring" }
-        - { state: "latest", name: "php5.6-mcrypt" }
         - { state: "latest", name: "php5.6-mysql" }
         - { state: "latest", name: "php5.6-opcache" }
         - { state: "latest", name: "php5.6-pgsql" }
@@ -51,7 +50,6 @@
         - { state: "latest", name: "php7.0-json" }
         - { state: "latest", name: "php7.0-ldap" }
         - { state: "latest", name: "php7.0-mbstring" }
-        - { state: "latest", name: "php7.0-mcrypt" }
         - { state: "latest", name: "php7.0-mysql" }
         - { state: "latest", name: "php7.0-opcache" }
         - { state: "latest", name: "php7.0-pgsql" }
@@ -72,7 +70,6 @@
         - { state: "latest", name: "php7.1-json" }
         - { state: "latest", name: "php7.1-ldap" }
         - { state: "latest", name: "php7.1-mbstring" }
-        - { state: "latest", name: "php7.1-mcrypt" }
         - { state: "latest", name: "php7.1-mysql" }
         - { state: "latest", name: "php7.1-opcache" }
         - { state: "latest", name: "php7.1-pgsql" }
@@ -83,6 +80,26 @@
         - { state: "latest", name: "php7.1-xml" }
         - { state: "latest", name: "php7.1-xmlrpc" }
         - { state: "latest", name: "php7.1-zip" }
+        - { state: "latest", name: "php7.2-bcmath" }
+        - { state: "latest", name: "php7.2-bz2" }
+        - { state: "latest", name: "php7.2-cli" }
+        - { state: "latest", name: "php7.2-curl" }
+        - { state: "latest", name: "php7.2-gd" }
+        - { state: "latest", name: "php7.2-imap" }
+        - { state: "latest", name: "php7.2-intl" }
+        - { state: "latest", name: "php7.2-json" }
+        - { state: "latest", name: "php7.2-ldap" }
+        - { state: "latest", name: "php7.2-mbstring" }
+        - { state: "latest", name: "php7.2-mysql" }
+        - { state: "latest", name: "php7.2-opcache" }
+        - { state: "latest", name: "php7.2-pgsql" }
+        - { state: "latest", name: "php7.2-snmp" }
+        - { state: "latest", name: "php7.2-soap" }
+        - { state: "latest", name: "php7.2-sqlite3" }
+        - { state: "latest", name: "php7.2-tidy" }
+        - { state: "latest", name: "php7.2-xml" }
+        - { state: "latest", name: "php7.2-xmlrpc" }
+        - { state: "latest", name: "php7.2-zip" }
 
     - name: phpenmod
       php_module:
@@ -108,7 +125,6 @@
         - { state: "present", name: "json" }
         - { state: "present", name: "ldap" }
         - { state: "present", name: "mbstring" }
-        - { state: "present", name: "mcrypt" }
         - { state: "present", name: "memcache" }
         - { state: "present", name: "mysqli" }
         - { state: "present", name: "mysqlnd" }

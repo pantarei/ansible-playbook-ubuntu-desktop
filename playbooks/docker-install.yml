@@ -1,0 +1,32 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-key add
+      apt_key:
+        url: "{{ item.url }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", url: "https://download.docker.com/linux/ubuntu/gpg" }
+
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "docker-ce" }
+
+    - name: enable service
+      service:
+        name: "{{ item.name }}"
+        enabled: "{{ item.enabled }}"
+      with_items:
+        - { name: "docker", enabled: "yes" }
