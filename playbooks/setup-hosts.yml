@@ -59,3 +59,5 @@
       shell: |
         rm -rf /etc/netplan/01-netcfg.yaml
         rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
+      register: fix_networkmanager_result
+      changed_when: fix_networkmanager_result.rc != 0
