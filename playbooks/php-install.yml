@@ -24,6 +24,7 @@
         - { state: "latest", name: "php5.6-bz2" }
         - { state: "latest", name: "php5.6-cli" }
         - { state: "latest", name: "php5.6-curl" }
+        - { state: "latest", name: "php5.6-fpm" }
         - { state: "latest", name: "php5.6-gd" }
         - { state: "latest", name: "php5.6-imap" }
         - { state: "latest", name: "php5.6-intl" }
@@ -44,6 +45,7 @@
         - { state: "latest", name: "php7.0-bz2" }
         - { state: "latest", name: "php7.0-cli" }
         - { state: "latest", name: "php7.0-curl" }
+        - { state: "latest", name: "php7.0-fpm" }
         - { state: "latest", name: "php7.0-gd" }
         - { state: "latest", name: "php7.0-imap" }
         - { state: "latest", name: "php7.0-intl" }
@@ -64,6 +66,7 @@
         - { state: "latest", name: "php7.1-bz2" }
         - { state: "latest", name: "php7.1-cli" }
         - { state: "latest", name: "php7.1-curl" }
+        - { state: "latest", name: "php7.1-fpm" }
         - { state: "latest", name: "php7.1-gd" }
         - { state: "latest", name: "php7.1-imap" }
         - { state: "latest", name: "php7.1-intl" }
@@ -84,6 +87,7 @@
         - { state: "latest", name: "php7.2-bz2" }
         - { state: "latest", name: "php7.2-cli" }
         - { state: "latest", name: "php7.2-curl" }
+        - { state: "latest", name: "php7.2-fpm" }
         - { state: "latest", name: "php7.2-gd" }
         - { state: "latest", name: "php7.2-imap" }
         - { state: "latest", name: "php7.2-intl" }
@@ -154,3 +158,27 @@
         - { state: "present", name: "xmlwriter" }
         - { state: "present", name: "xsl" }
         - { state: "present", name: "zip" }
+
+    - name: enable service
+      service:
+        name: "{{ item.name }}"
+        enabled: "{{ item.enabled }}"
+      with_items:
+        - { name: "php5.6-fpm", enabled: "yes" }
+        - { name: "php7.0-fpm", enabled: "yes" }
+        - { name: "php7.1-fpm", enabled: "yes" }
+        - { name: "php7.2-fpm", enabled: "yes" }
+
+    - name: install composer globally
+      shell: |
+        curl -sL https://getcomposer.org/download/1.6.1/composer.phar > /usr/local/bin/composer
+        chown root:root /usr/local/bin/composer
+        chmod 777 /usr/local/bin/composer
+      args:
+        creates: "/usr/local/bin/composer"
+
+    - name: composer self-update
+      shell: |
+        composer self-update --no-interaction
+      register: composer_self_update_result
+      changed_when: "'You are already using composer' not in composer_self_update_result.stderr"
