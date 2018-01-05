@@ -182,3 +182,53 @@
         composer self-update --no-interaction
       register: composer_self_update_result
       changed_when: "'You are already using composer' not in composer_self_update_result.stderr"
+
+    - name: composer global init
+      shell: |
+        mkdir -p $COMPOSER_HOME
+        composer global init --no-interaction
+      register: composer_global_init_result
+      changed_when: composer_global_init_result.rc != 0
+      environment:
+        COMPOSER_HOME: "/usr/local/share/composer"
+        COMPOSER_BIN_DIR: "/usr/local/bin"
+
+    - name: composer global require
+      shell: |
+        composer global {{ item.status }} {{ item.name }} --no-interaction
+      with_items:
+        - { status: 'require', name: 'hirak/prestissimo:@stable' }
+        - { status: 'require', name: 'consolidation/cgr:@stable' }
+      register: composer_global_require_result
+      changed_when: composer_global_require_result.rc != 0
+      environment:
+        COMPOSER_HOME: "/usr/local/share/composer"
+        COMPOSER_BIN_DIR: "/usr/local/bin"
+
+    - name: cgr require
+      shell: |
+        cgr require {{ item.name }}
+      with_items:
+        - { name: "drupal/coder:@stable" }
+        - { name: "drupal/console:~1.0" }
+        - { name: "drush/drush:@stable" }
+        - { name: "friendsofphp/php-cs-fixer:@stable" }
+        - { name: "phpunit/phpunit:~5.7" }
+        - { name: "sami/sami:@stable" }
+        - { name: "squizlabs/php_codesniffer:@stable" }
+      register: cgr_require_result
+      changed_when: cgr_require_result.rc != 0
+      environment:
+        COMPOSER_HOME: "/usr/local/share/composer"
+        COMPOSER_BIN_DIR: "/usr/local/bin"
+        CGR_BIN_DIR: "/usr/local/bin"
+
+    - name: cgr update
+      shell: |
+        cgr update
+      register: cgr_update_result
+      changed_when: "'Package operations:' in cgr_update_result.stderr"
+      environment:
+        COMPOSER_HOME: "/usr/local/share/composer"
+        COMPOSER_BIN_DIR: "/usr/local/bin"
+        CGR_BIN_DIR: "/usr/local/bin"
