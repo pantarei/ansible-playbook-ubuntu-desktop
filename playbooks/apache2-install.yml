@@ -64,3 +64,10 @@
         - { state: "present", name: "setenvif" }
         - { state: "present", name: "ssl" }
         - { state: "present", name: "status" }
+
+    - name: enable service
+      service:
+        name: "{{ item.name }}"
+        enabled: "{{ item.enabled }}"
+      with_items:
+        - { name: "apache2", enabled: "yes" }
