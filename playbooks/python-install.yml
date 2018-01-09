@@ -1,0 +1,35 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-get install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "build-essential" }
+        - { state: "latest", name: "curl" }
+        - { state: "latest", name: "libffi-dev" }
+        - { state: "latest", name: "libssl-dev" }
+        - { state: "latest", name: "python-dev" }
+        - { state: "latest", name: "python-minimal" }
+
+    - name: python get-pip.py
+      shell: |
+        curl -sL https://bootstrap.pypa.io/get-pip.py | python
+      register: python_get_pip_result
+      changed_when: python_get_pip_result.rc != 0
+
+    - name: pip install
+      pip:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "pip" }
+        - { state: "latest", name: "setuptools" }
+        - { state: "latest", name: "wheel" }
+        - { state: "latest", name: "ndg-httpsclient" }
+        - { state: "latest", name: "pyasn1" }
+        - { state: "latest", name: "pyopenssl" }
+        - { state: "latest", name: "urllib3" }

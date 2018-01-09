@@ -23,7 +23,13 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "absent", name: "docker" }
+        - { state: "absent", name: "docker-engine" }
+        - { state: "absent", name: "docker.io" }
+        - { state: "latest", name: "dmsetup" }
         - { state: "latest", name: "docker-ce" }
+        - { state: "latest", name: "lvm2" }
+        - { state: "latest", name: "thin-provisioning-tools" }
 
     - name: enable service
       service:
@@ -31,3 +37,12 @@
         enabled: "{{ item.enabled }}"
       with_items:
         - { name: "docker", enabled: "yes" }
+
+    - name: pip install
+      pip:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", name: "docker-py" }
+        - { state: "present", name: "docker" }
+        - { state: "latest", name: "docker-compose" }
