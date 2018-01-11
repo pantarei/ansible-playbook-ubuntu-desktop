@@ -19,6 +19,7 @@
         - { state: "latest", name: "dia-shapes" }
         - { state: "latest", name: "dos2unix" }
         - { state: "latest", name: "doxygen" }
+        - { state: "latest", name: "duplicity" }
         - { state: "latest", name: "filezilla" }
         - { state: "latest", name: "flashplugin-installer" }
         - { state: "latest", name: "fonts-arphic-ukai" }
@@ -78,6 +79,7 @@
         - { state: "latest", name: "pandoc" }
         - { state: "latest", name: "playonlinux" }
         - { state: "latest", name: "pwgen" }
+        - { state: "latest", name: "python-gi" }
         - { state: "latest", name: "remmina" }
         - { state: "latest", name: "remmina-plugin-gnome" }
         - { state: "latest", name: "sqlite3" }
