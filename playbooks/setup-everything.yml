@@ -14,6 +14,7 @@
 - import_playbook: firefox-install.yml
 - import_playbook: fprint-install.yml
 - import_playbook: git-install.yml
+- import_playbook: go-install.yml
 - import_playbook: google-drive-ocamlfuse-install.yml
 - import_playbook: hipchat-install.yml
 - import_playbook: memcache-install.yml

@@ -1,0 +1,30 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "ppa:gophers/archive" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "golang-1.9" }
+
+    - name: find all go binary
+      find:
+        paths: "/usr/lib/go-1.9/bin"
+      register: find_result
+
+    - name: symlink go binary
+      file:
+        src: "{{ item.path }}"
+        dest: "/usr/local/bin/{{ item.path | basename }}"
+        state: link
+      with_items: "{{ find_result.files }}"
