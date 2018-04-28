@@ -16,7 +16,8 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", repo: "deb http://download.virtualbox.org/virtualbox/debian zesty contrib" }
-        - { state: "present", repo: "deb http://download.virtualbox.org/virtualbox/debian artful contrib" }
+        - { state: "absent", repo: "deb http://download.virtualbox.org/virtualbox/debian artful contrib" }
+        - { state: "present", repo: "deb http://download.virtualbox.org/virtualbox/debian bionic contrib" }
 
     - name: apt install
       apt:

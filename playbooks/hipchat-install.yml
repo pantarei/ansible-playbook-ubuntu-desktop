@@ -16,6 +16,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main" }
+        - { state: "absent", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client bionic main" }
         - { state: "present", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client artful main" }
 
     - name: apt install
@@ -35,8 +36,8 @@
         state: "link"
         force: "yes"
       with_items:
-        - { src: "/lib/x86_64-linux-gnu/libcrypto.so.1.0.0", dest: "/opt/HipChat4/lib/libcrypto.so.1.0.0" }
-        - { src: "/lib/x86_64-linux-gnu/libssl.so.1.0.0", dest: "/opt/HipChat4/lib/libssl.so.1.0.0" }
+        - { src: "/usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0", dest: "/opt/HipChat4/lib/libcrypto.so.1.0.0" }
+        - { src: "/usr/lib/x86_64-linux-gnu/libssl.so.1.0.0", dest: "/opt/HipChat4/lib/libssl.so.1.0.0" }
         - { src: "libcrypto.so.1.0.0", dest: "/opt/HipChat4/lib/libcrypto.so" }
         - { src: "libssl.so.1.0.0", dest: "/opt/HipChat4/lib/libssl.so" }
 

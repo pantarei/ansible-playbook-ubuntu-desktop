@@ -58,7 +58,14 @@
 
     - name: fix NetworkManager
       shell: |
-        rm -rf /etc/netplan/01-netcfg.yaml
         rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
+        systemctl restart NetworkManager.service
       register: fix_networkmanager_result
       changed_when: fix_networkmanager_result.rc != 0
+
+    - name: disable cloud-init's network configuration capabilities
+      shell: |
+        echo "network: {config: disabled}" > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+        systemctl restart cloud-init.service
+      register: disable_cloud_init_network_result
+      changed_when: disable_cloud_init_network_result != 0

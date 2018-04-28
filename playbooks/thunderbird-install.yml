@@ -8,18 +8,12 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "ppa:ansible/ansible" }
+        - { state: "present", repo: "ppa:mozillateam/thunderbird-next" }
 
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", name: "ansible" }
-
-    - name: pip install
-      pip:
-        name: "{{ item.name }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "latest", name: "ansible" }
+        - { state: "latest", name: "thunderbird" }
+        - { state: "latest", name: "thunderbird-gnome-support" }

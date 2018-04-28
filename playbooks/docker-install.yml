@@ -16,6 +16,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable" }
+        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge" }
         - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful edge" }
 
     - name: apt install
@@ -26,10 +27,7 @@
         - { state: "absent", name: "docker" }
         - { state: "absent", name: "docker-engine" }
         - { state: "absent", name: "docker.io" }
-        - { state: "latest", name: "dmsetup" }
         - { state: "latest", name: "docker-ce" }
-        - { state: "latest", name: "lvm2" }
-        - { state: "latest", name: "thin-provisioning-tools" }
 
     - name: enable service
       service:
@@ -44,5 +42,5 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", name: "docker-py" }
-        - { state: "present", name: "docker" }
+        - { state: "latest", name: "docker" }
         - { state: "latest", name: "docker-compose" }
