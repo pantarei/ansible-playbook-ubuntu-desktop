@@ -12,13 +12,12 @@
         - { state: "latest", name: "blender" }
         - { state: "latest", name: "bmon" }
         - { state: "latest", name: "chrome-gnome-shell" }
-        - { state: "latest", name: "chromium-browser" }
         - { state: "latest", name: "colordiff" }
-        - { state: "latest", name: "composer" }
         - { state: "latest", name: "dia" }
         - { state: "latest", name: "dia-shapes" }
         - { state: "latest", name: "dos2unix" }
         - { state: "latest", name: "doxygen" }
+        - { state: "latest", name: "duplicity" }
         - { state: "latest", name: "filezilla" }
         - { state: "latest", name: "flashplugin-installer" }
         - { state: "latest", name: "fonts-arphic-ukai" }
@@ -41,7 +40,7 @@
         - { state: "latest", name: "gir1.2-gmenu-3.0" }
         - { state: "latest", name: "gir1.2-gtk-3.0" }
         - { state: "latest", name: "gir1.2-gtop-2.0" }
-        - { state: "latest", name: "gir1.2-mutter-1" }
+        - { state: "latest", name: "gir1.2-mutter-2" }
         - { state: "latest", name: "gir1.2-pango-1.0" }
         - { state: "latest", name: "gnome-system-tools" }
         - { state: "latest", name: "gnome-tweak-tool" }
@@ -70,7 +69,6 @@
         - { state: "latest", name: "network-manager-openvpn-gnome" }
         - { state: "latest", name: "nmap" }
         - { state: "latest", name: "nmon" }
-        - { state: "latest", name: "ntp" }
         - { state: "latest", name: "openshot" }
         - { state: "latest", name: "openvpn" }
         - { state: "latest", name: "p7zip" }
@@ -78,12 +76,10 @@
         - { state: "latest", name: "pandoc" }
         - { state: "latest", name: "playonlinux" }
         - { state: "latest", name: "pwgen" }
+        - { state: "latest", name: "python-gi" }
         - { state: "latest", name: "remmina" }
-        - { state: "latest", name: "remmina-plugin-gnome" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "sshfs" }
-        - { state: "latest", name: "thunderbird" }
-        - { state: "latest", name: "thunderbird-gnome-support" }
         - { state: "latest", name: "tree" }
         - { state: "latest", name: "ubuntu-restricted-addons" }
         - { state: "latest", name: "ubuntu-restricted-extras" }

@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:ubuntu-mozilla-daily/firefox-aurora" }
+        - { state: "present", repo: "ppa:mozillateam/firefox-next" }
 
     - name: apt install
       apt:
