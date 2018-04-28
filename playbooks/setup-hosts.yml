@@ -15,6 +15,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", name: "python-pip" }
+        - { state: "absent", name: "cloud-init" }
         - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
         - { state: "latest", name: "build-essential" }
@@ -59,18 +60,6 @@
     - name: fix NetworkManager
       shell: |
         rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
-        systemctl restart NetworkManager.service
+        rm -rf /etc/netplan/*
       register: fix_networkmanager_result
       changed_when: fix_networkmanager_result.rc != 0
-
-    - name: disable cloud-init's network configuration capabilities
-      lineinfile:
-        path: /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
-        regexp: '^network: {config: disabled}$'
-        line: 'network: {config: disabled}'
-
-    - name: preserve hostname
-      replace:
-        path: /etc/cloud/cloud.cfg
-        regexp: '^preserve_hostname: false'
-        replace: 'preserve_hostname: true'
