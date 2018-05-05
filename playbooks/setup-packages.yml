@@ -80,6 +80,7 @@
         - { state: "latest", name: "remmina" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "sshfs" }
+        - { state: "latest", name: "tlp" }
         - { state: "latest", name: "tree" }
         - { state: "latest", name: "ubuntu-restricted-addons" }
         - { state: "latest", name: "ubuntu-restricted-extras" }
