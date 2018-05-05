@@ -8,11 +8,6 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "firefox-locale-en" }
-        - { state: "latest", name: "firefox-locale-ja" }
-        - { state: "latest", name: "firefox-locale-ko" }
-        - { state: "latest", name: "firefox-locale-zh-hans" }
-        - { state: "latest", name: "firefox-locale-zh-hant" }
         - { state: "latest", name: "gimp-help-en" }
         - { state: "latest", name: "gimp-help-ja" }
         - { state: "latest", name: "gimp-help-ko" }
@@ -54,12 +49,3 @@
         - { state: "latest", name: "libreoffice-l10n-zh-tw" }
         - { state: "latest", name: "mythes-en-au" }
         - { state: "latest", name: "mythes-en-us" }
-        - { state: "latest", name: "thunderbird-locale-en" }
-        - { state: "latest", name: "thunderbird-locale-en-gb" }
-        - { state: "latest", name: "thunderbird-locale-en-us" }
-        - { state: "latest", name: "thunderbird-locale-ja" }
-        - { state: "latest", name: "thunderbird-locale-ko" }
-        - { state: "latest", name: "thunderbird-locale-zh-cn" }
-        - { state: "latest", name: "thunderbird-locale-zh-hans" }
-        - { state: "latest", name: "thunderbird-locale-zh-hant" }
-        - { state: "latest", name: "thunderbird-locale-zh-tw" }
