@@ -68,7 +68,8 @@
       shell: |
         cp /usr/share/grub/*.pf2 /boot/grub/
         sed -i 's/^\(GRUB_HIDDEN_TIMEOUT\)=\(.*\)$/#\1=\2/g' /etc/default/grub
-        sed -i 's/^\(GRUB_HIDDEN_TIMEOUT_QUIET\)=\(.*)$/#\1=\2/g' /etc/default/grub
+        sed -i 's/^\(GRUB_HIDDEN_TIMEOUT_QUIET\)=\(.*\)$/#\1=\2/g' /etc/default/grub
+        sed -i 's/^\(GRUB_TIMEOUT\)=\(.*\)$/\1=3/g' /etc/default/grub
         sed -i 's/^\(GRUB_CMDLINE_LINUX\)=\(.*\)$/\1="cgroup_enable=memory swapaccount=1"/g' /etc/default/grub
         update-grub
       register: fix_grub2_result
