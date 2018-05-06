@@ -63,3 +63,13 @@
         rm -rf /etc/netplan/*
       register: fix_networkmanager_result
       changed_when: fix_networkmanager_result.rc != 0
+
+    - name: fix grub2
+      shell: |
+        cp /usr/share/grub/*.pf2 /boot/grub/
+        sed -i 's/^\(GRUB_HIDDEN_TIMEOUT\)=\(.*\)$/#\1=\2/g' /etc/default/grub
+        sed -i 's/^\(GRUB_HIDDEN_TIMEOUT_QUIET\)=\(.*)$/#\1=\2/g' /etc/default/grub
+        sed -i 's/^\(GRUB_CMDLINE_LINUX\)=\(.*\)$/\1="cgroup_enable=memory swapaccount=1"/g' /etc/default/grub
+        update-grub
+      register: fix_grub2_result
+      changed_when: fix_grub2_result.rc != 0
