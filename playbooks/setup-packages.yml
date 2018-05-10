@@ -59,8 +59,6 @@
         - { state: "latest", name: "ibus-table-quick5" }
         - { state: "latest", name: "ibus-table-wubi" }
         - { state: "latest", name: "ideviceinstaller" }
-        - { state: "latest", name: "inkscape" }
-        - { state: "latest", name: "inkscape-open-symbols" }
         - { state: "latest", name: "libimobiledevice-utils" }
         - { state: "latest", name: "libimobiledevice6" }
         - { state: "latest", name: "lsb" }
