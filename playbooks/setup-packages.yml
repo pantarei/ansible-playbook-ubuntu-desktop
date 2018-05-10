@@ -32,7 +32,6 @@
         - { state: "latest", name: "fonts-takao-gothic" }
         - { state: "latest", name: "fonts-takao-mincho" }
         - { state: "latest", name: "fonts-unfonts-core" }
-        - { state: "latest", name: "gimp" }
         - { state: "latest", name: "gir1.2-atk-1.0" }
         - { state: "latest", name: "gir1.2-clutter-1.0" }
         - { state: "latest", name: "gir1.2-gdkpixbuf-2.0" }

@@ -8,9 +8,6 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "gimp-help-en" }
-        - { state: "latest", name: "gimp-help-ja" }
-        - { state: "latest", name: "gimp-help-ko" }
         - { state: "latest", name: "gnome-getting-started-docs-ja" }
         - { state: "latest", name: "gnome-getting-started-docs-ko" }
         - { state: "latest", name: "gnome-getting-started-docs-zh-hk" }

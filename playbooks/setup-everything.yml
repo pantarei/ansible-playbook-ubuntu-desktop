@@ -15,6 +15,7 @@
 - import_playbook: docker-install.yml
 - import_playbook: firefox-install.yml
 - import_playbook: fprint-install.yml
+- import_playbook: gimp-install.yml
 - import_playbook: git-install.yml
 #- import_playbook: go-install.yml
 - import_playbook: google-drive-ocamlfuse-install.yml
