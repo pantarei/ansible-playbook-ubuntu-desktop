@@ -1,0 +1,30 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "ppa:libreoffice/ppa" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "libreoffice" }
+        - { state: "latest", name: "libreoffice-help-en-gb" }
+        - { state: "latest", name: "libreoffice-help-en-us" }
+        - { state: "latest", name: "libreoffice-help-ja" }
+        - { state: "latest", name: "libreoffice-help-ko" }
+        - { state: "latest", name: "libreoffice-help-zh-cn" }
+        - { state: "latest", name: "libreoffice-help-zh-tw" }
+        - { state: "latest", name: "libreoffice-l10n-en-gb" }
+        - { state: "latest", name: "libreoffice-l10n-en-za" }
+        - { state: "latest", name: "libreoffice-l10n-ja" }
+        - { state: "latest", name: "libreoffice-l10n-ko" }
+        - { state: "latest", name: "libreoffice-l10n-zh-cn" }
+        - { state: "latest", name: "libreoffice-l10n-zh-tw" }
