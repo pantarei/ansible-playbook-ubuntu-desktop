@@ -75,6 +75,7 @@
         - { state: "latest", name: "pwgen" }
         - { state: "latest", name: "python-gi" }
         - { state: "latest", name: "remmina" }
+        - { state: "latest", name: "smartmontools" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "sshfs" }
         - { state: "latest", name: "tlp" }
