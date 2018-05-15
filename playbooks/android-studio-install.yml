@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "ppa:maarten-fonville/android-studio" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "android-studio" }
+        - { state: "latest", name: "bridge-utils" }
+        - { state: "latest", name: "default-jre" }
+        - { state: "latest", name: "default-jre-headless" }
+        - { state: "latest", name: "libvirt-bin" }
+        - { state: "latest", name: "qemu-kvm" }
+        - { state: "latest", name: "ubuntu-vm-builder" }
