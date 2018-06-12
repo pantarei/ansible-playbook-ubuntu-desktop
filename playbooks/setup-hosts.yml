@@ -81,3 +81,10 @@
         dest: "/etc/resolv.conf"
         state: "link"
         force: "yes"
+
+    - name: fix Bluetooth Mouse M557
+      lineinfile:
+        path: "/usr/share/gnome-bluetooth/pin-code-database.xml"
+        regexp: "^\t<device oui=\"00:1F:20:\".*$"
+        line: "\t<device oui=\"00:1F:20:\" type=\"mouse\" name=\"Bluetooth Mouse M557\" pin=\"0000\" />"
+        state: "present"
