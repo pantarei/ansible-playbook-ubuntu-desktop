@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: npm install
+      npm:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+        global: "yes"
+      with_items:
+        - { state: "latest", name: "cordova" }
+
+    - name: symlink cordova.completion
+      file:
+        src: "/usr/lib/node_modules/cordova/scripts/cordova.completion"
+        dest: "/etc/bash_completion.d/cordova.completion"
+        state: link
