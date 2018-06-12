@@ -15,7 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb https://deb.nodesource.com/node_8.x artful main" }
+        - { state: "absent", repo: "deb https://deb.nodesource.com/node_8.x artful main" }
+        - { state: "present", repo: "deb https://deb.nodesource.com/node_10.x bionic main" }
 
     - name: apt install
       apt:
