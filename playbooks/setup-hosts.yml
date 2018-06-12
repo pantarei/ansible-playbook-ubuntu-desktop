@@ -74,3 +74,10 @@
         update-grub
       register: fix_grub2_result
       changed_when: fix_grub2_result.rc != 0
+
+    - name: fix resolv.conf
+      file:
+        src: "/run/systemd/resolve/resolv.conf"
+        dest: "/etc/resolv.conf"
+        state: "link"
+        force: "yes"
