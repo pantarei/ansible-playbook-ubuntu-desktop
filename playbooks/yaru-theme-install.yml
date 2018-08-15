@@ -1,0 +1,26 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "ppa:communitheme/ppa" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", name: "communitheme-sounds" }
+        - { state: "absent", name: "gnome-shell-communitheme" }
+        - { state: "absent", name: "gtk-communitheme" }
+        - { state: "absent", name: "suru-icon-theme" }
+        - { state: "absent", name: "ubuntu-communitheme-session" }
+        - { state: "latest", name: "yaru-theme-gnome-shell" }
+        - { state: "latest", name: "yaru-theme-gtk" }
+        - { state: "latest", name: "yaru-theme-icon" }
+        - { state: "latest", name: "yaru-theme-sound" }

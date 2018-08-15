@@ -50,6 +50,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "present", repo: "ppa:graphics-drivers/ppa" }
+        - { state: "present", repo: "ppa:ubuntu-x-swat/updates" }
 
     - name: ubuntu-drivers autoinstall
       shell: |
