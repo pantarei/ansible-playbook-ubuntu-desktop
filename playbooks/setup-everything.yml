@@ -7,9 +7,9 @@
 - import_playbook: setup-multilingual.yml
 
 - import_playbook: chrome-install.yml
-- import_playbook: docker-install.yml
+#- import_playbook: docker-install.yml
 - import_playbook: firefox-install.yml
-- import_playbook: fprint-install.yml
+#- import_playbook: fprint-install.yml
 - import_playbook: gimp-install.yml
 - import_playbook: git-install.yml
 - import_playbook: google-drive-ocamlfuse-install.yml
@@ -18,4 +18,3 @@
 - import_playbook: libreoffice-install.yml
 - import_playbook: thunderbird-install.yml
 - import_playbook: virtualbox-install.yml
-- import_playbook: yaru-theme-install.yml
