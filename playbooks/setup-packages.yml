@@ -32,7 +32,6 @@
         - { state: "latest", name: "fonts-takao-gothic" }
         - { state: "latest", name: "fonts-takao-mincho" }
         - { state: "latest", name: "fonts-unfonts-core" }
-        - { state: "latest", name: "gimp" }
         - { state: "latest", name: "gir1.2-atk-1.0" }
         - { state: "latest", name: "gir1.2-clutter-1.0" }
         - { state: "latest", name: "gir1.2-gdkpixbuf-2.0" }
@@ -60,8 +59,6 @@
         - { state: "latest", name: "ibus-table-quick5" }
         - { state: "latest", name: "ibus-table-wubi" }
         - { state: "latest", name: "ideviceinstaller" }
-        - { state: "latest", name: "inkscape" }
-        - { state: "latest", name: "inkscape-open-symbols" }
         - { state: "latest", name: "libimobiledevice-utils" }
         - { state: "latest", name: "libimobiledevice6" }
         - { state: "latest", name: "lsb" }
@@ -78,8 +75,10 @@
         - { state: "latest", name: "pwgen" }
         - { state: "latest", name: "python-gi" }
         - { state: "latest", name: "remmina" }
+        - { state: "latest", name: "smartmontools" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "sshfs" }
+        - { state: "latest", name: "tlp" }
         - { state: "latest", name: "tree" }
         - { state: "latest", name: "ubuntu-restricted-addons" }
         - { state: "latest", name: "ubuntu-restricted-extras" }

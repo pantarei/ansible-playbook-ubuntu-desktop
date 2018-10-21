@@ -16,3 +16,8 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "firefox" }
+        - { state: "latest", name: "firefox-locale-en" }
+        - { state: "latest", name: "firefox-locale-ja" }
+        - { state: "latest", name: "firefox-locale-ko" }
+        - { state: "latest", name: "firefox-locale-zh-hans" }
+        - { state: "latest", name: "firefox-locale-zh-hant" }

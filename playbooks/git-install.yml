@@ -3,12 +3,20 @@
 - hosts: all
   remote_user: root
   tasks:
+    - name: apt-key add
+      apt_key:
+        url: "{{ item.url }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", url: "https://packagecloud.io/github/git-lfs/gpgkey" }
+
     - name: apt-add-repository
       apt_repository:
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
         - { state: "present", repo: "ppa:git-core/ppa" }
+        - { state: "present", repo: "deb https://packagecloud.io/github/git-lfs/ubuntu/ bionic main" }
 
     - name: apt install
       apt:
@@ -17,3 +25,4 @@
       with_items:
         - { state: "latest", name: "git" }
         - { state: "latest", name: "git-flow" }
+        - { state: "latest", name: "git-lfs" }

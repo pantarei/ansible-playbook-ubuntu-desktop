@@ -15,7 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb https://deb.nodesource.com/node_8.x artful main" }
+        - { state: "absent", repo: "deb https://deb.nodesource.com/node_8.x artful main" }
+        - { state: "present", repo: "deb https://deb.nodesource.com/node_10.x bionic main" }
 
     - name: apt install
       apt:
@@ -23,3 +24,13 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "nodejs" }
+
+    - name: npm install
+      npm:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+        global: "yes"
+      with_items:
+        - { state: "latest", name: "eslint" }
+        - { state: "latest", name: "node-sass" }
+        - { state: "latest", name: "sass-lint" }
