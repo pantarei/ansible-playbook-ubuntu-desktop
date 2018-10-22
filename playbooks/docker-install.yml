@@ -36,12 +36,3 @@
         enabled: "{{ item.enabled }}"
       with_items:
         - { name: "docker", enabled: "yes" }
-
-    - name: pip install
-      pip:
-        name: "{{ item.name }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "absent", name: "docker-compose" }
-        - { state: "absent", name: "docker-py" }
-        - { state: "latest", name: "docker" }
