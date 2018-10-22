@@ -42,6 +42,6 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "absent", name: "docker-compose" }
         - { state: "absent", name: "docker-py" }
         - { state: "latest", name: "docker" }
-        - { state: "latest", name: "docker-compose" }
