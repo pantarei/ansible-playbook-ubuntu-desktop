@@ -3,12 +3,34 @@
 - hosts: all
   remote_user: root
   tasks:
+    - name: apt-key add
+      apt_key:
+        keyserver: "keyserver.ubuntu.com"
+        id: "177F4010FE56CA3336300305F1656F24C74CD1D8"
+
+    - name: add-apt-repository
+      apt_repository:
+        repo: "deb http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu bionic main"
+        state: "present"
+
+    - name: debconf-set-selections
+      debconf:
+        name: "{{ item.name }}"
+        vtype: "{{ item.vtype }}"
+        question: "{{ item.question }}"
+        value: "{{ item.value }}"
+      with_items:
+        - { name: "mariadb-server-10.3", vtype: "password", question: "mysql-server/root_password", value: "" }
+        - { name: "mariadb-server-10.3", vtype: "password", question: "mysql-server/root_password_again", value: "" }
+      changed_when: false
+
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "mysql-server" }
+        - { state: "latest", name: "mariadb-client-10.3" }
+        - { state: "latest", name: "mariadb-server-10.3" }
 
     - name: start service
       service:

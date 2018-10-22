@@ -58,6 +58,13 @@
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result.rc != 0
 
+    - name: enforce gdm3 with xorg
+      lineinfile:
+        path: "/etc/gdm3/custom.conf"
+        regexp: "^.*WaylandEnable=false$"
+        line: "WaylandEnable=false"
+        state: "present"
+
     - name: fix NetworkManager
       shell: |
         rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
