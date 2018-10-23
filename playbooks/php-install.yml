@@ -140,6 +140,7 @@
         composer self-update --no-interaction
       register: composer_self_update_result
       changed_when: "'You are already using composer' not in composer_self_update_result.stderr"
+      ignore_errors: yes
 
     - name: composer global init
       shell: |
