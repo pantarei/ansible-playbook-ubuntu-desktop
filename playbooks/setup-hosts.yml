@@ -40,6 +40,7 @@
       with_items:
         - { name: "openssh-server" }
         - { name: "server" }
+        - { name: "ubuntu-desktop" }
         - { name: "vanilla-gnome-desktop" }
       register: tasksel_update_result
       changed_when: tasksel_update_result.rc != 0
