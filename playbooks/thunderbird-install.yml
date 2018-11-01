@@ -26,3 +26,4 @@
         - { state: "latest", name: "thunderbird-locale-zh-hans" }
         - { state: "latest", name: "thunderbird-locale-zh-hant" }
         - { state: "latest", name: "thunderbird-locale-zh-tw" }
+        - { state: "latest", name: "xul-ext-lightning" }
