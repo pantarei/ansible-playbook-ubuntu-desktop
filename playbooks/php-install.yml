@@ -16,7 +16,13 @@
         state: "{{ item.state }}"
         install_recommends: "no"
       with_items:
-        - { state: "latest", name: "snmp-mibs-downloader" }
+        - { state: "latest", name: "geoip-database" }
+        - { state: "latest", name: "geoip-database-extra" }
+        - { state: "latest", name: "imagemagick" }
+        - { state: "latest", name: "libssl-dev" }
+        - { state: "latest", name: "mysql-client" }
+        - { state: "latest", name: "postgresql-client" }
+        - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "php5.6-bcmath" }
         - { state: "latest", name: "php5.6-bz2" }
         - { state: "latest", name: "php5.6-cli" }
@@ -31,12 +37,12 @@
         - { state: "latest", name: "php5.6-mysql" }
         - { state: "latest", name: "php5.6-opcache" }
         - { state: "latest", name: "php5.6-pgsql" }
-        - { state: "latest", name: "php5.6-snmp" }
         - { state: "latest", name: "php5.6-soap" }
         - { state: "latest", name: "php5.6-sqlite3" }
         - { state: "latest", name: "php5.6-tidy" }
         - { state: "latest", name: "php5.6-xml" }
         - { state: "latest", name: "php5.6-xmlrpc" }
+        - { state: "latest", name: "php5.6-xsl" }
         - { state: "latest", name: "php5.6-zip" }
         - { state: "latest", name: "php7.2-bcmath" }
         - { state: "latest", name: "php7.2-bz2" }
@@ -52,16 +58,18 @@
         - { state: "latest", name: "php7.2-mysql" }
         - { state: "latest", name: "php7.2-opcache" }
         - { state: "latest", name: "php7.2-pgsql" }
-        - { state: "latest", name: "php7.2-snmp" }
         - { state: "latest", name: "php7.2-soap" }
         - { state: "latest", name: "php7.2-sqlite3" }
         - { state: "latest", name: "php7.2-tidy" }
         - { state: "latest", name: "php7.2-xml" }
         - { state: "latest", name: "php7.2-xmlrpc" }
+        - { state: "latest", name: "php7.2-xsl" }
         - { state: "latest", name: "php7.2-zip" }
         - { state: "latest", name: "php-apcu" }
         - { state: "latest", name: "php-apcu-bc" }
-        - { state: "latest", name: "php-memcache" }
+        - { state: "latest", name: "php-geoip" }
+        - { state: "latest", name: "php-imagick" }
+        - { state: "latest", name: "php-memcached" }
         - { state: "latest", name: "php-uuid" }
         - { state: "latest", name: "php-xdebug" }
 
