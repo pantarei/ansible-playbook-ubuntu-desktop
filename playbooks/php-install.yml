@@ -129,7 +129,7 @@
 
     - name: install composer globally
       shell: |
-        curl -sL https://getcomposer.org/download/1.7.2/composer.phar > /usr/local/bin/composer
+        curl -sL https://getcomposer.org/download/1.7.3/composer.phar > /usr/local/bin/composer
         chown root:root /usr/local/bin/composer
         chmod 777 /usr/local/bin/composer
       args:
