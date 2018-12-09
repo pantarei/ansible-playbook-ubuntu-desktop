@@ -185,6 +185,7 @@
         - { name: "squizlabs/php_codesniffer:@stable" }
       register: cgr_require_result
       changed_when: cgr_require_result.rc != 0
+      ignore_errors: "yes"
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"
         COMPOSER_BIN_DIR: "/usr/local/bin"
@@ -195,6 +196,7 @@
         cgr update
       register: cgr_update_result
       changed_when: "'Package operations:' in cgr_update_result.stderr"
+      ignore_errors: "yes"
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"
         COMPOSER_BIN_DIR: "/usr/local/bin"

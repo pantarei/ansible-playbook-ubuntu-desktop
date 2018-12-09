@@ -15,7 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb http://download.virtualbox.org/virtualbox/debian bionic contrib" }
+        - { state: "absent", repo: "deb http://download.virtualbox.org/virtualbox/debian bionic contrib" }
+        - { state: "present", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib" }
 
     - name: apt install
       apt:
