@@ -84,3 +84,9 @@
         regexp: "^\t<device oui=\"00:1F:20:\".*$"
         line: "\t<device oui=\"00:1F:20:\" type=\"mouse\" name=\"Bluetooth Mouse M557\" pin=\"0000\" />"
         state: "present"
+
+    - name: fix RTC in local time
+      shell: |
+        timedatectl set-local-rtc 1 --adjust-system-clock
+      register: result
+      changed_when: result is not succeeded
