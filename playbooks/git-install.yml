@@ -15,8 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "absent", repo: "deb https://packagecloud.io/github/git-lfs/ubuntu/ bionic main" }
         - { state: "present", repo: "ppa:git-core/ppa" }
-        - { state: "present", repo: "deb https://packagecloud.io/github/git-lfs/ubuntu/ bionic main" }
 
     - name: apt install
       apt:
