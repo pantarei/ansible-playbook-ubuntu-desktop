@@ -37,8 +37,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "ppa:ubuntu-x-swat/updates" }
         - { state: "present", repo: "ppa:graphics-drivers/ppa" }
+        - { state: "present", repo: "ppa:ubuntu-x-swat/updates" }
 
     - name: ubuntu-drivers autoinstall
       shell: |
@@ -85,8 +85,8 @@
         line: "\t<device oui=\"00:1F:20:\" type=\"mouse\" name=\"Bluetooth Mouse M557\" pin=\"0000\" />"
         state: "present"
 
-    - name: fix RTC in local time
+    - name: fix RTC in UTC
       shell: |
-        timedatectl set-local-rtc 1 --adjust-system-clock
+        timedatectl set-local-rtc 0 --adjust-system-clock
       register: result
       changed_when: result is not succeeded

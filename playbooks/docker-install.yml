@@ -16,8 +16,8 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge" }
-        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test" }
         - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" }
+        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test" }
         - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu cosmic stable" }
 
     - name: apt install
