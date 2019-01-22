@@ -5,18 +5,19 @@
   tasks:
     - name: apt-key add
       apt_key:
-        url: "{{ item.url }}"
+        id: "{{ item.id | default(None) or omit }}"
+        url: "{{ item.url | default(None) or omit }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", url: "https://packagecloud.io/github/git-lfs/gpgkey" }
+        - { state: "absent", url: "https://packagecloud.io/github/git-lfs/gpgkey", id: "0xD59097AB" }
 
     - name: apt-add-repository
       apt_repository:
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "absent", repo: "deb https://packagecloud.io/github/git-lfs/ubuntu/ bionic main" }
         - { state: "present", repo: "ppa:git-core/ppa" }
-        - { state: "present", repo: "deb https://packagecloud.io/github/git-lfs/ubuntu/ bionic main" }
 
     - name: apt install
       apt:

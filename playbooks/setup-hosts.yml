@@ -14,8 +14,8 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", name: "python-pip" }
         - { state: "absent", name: "cloud-init" }
+        - { state: "absent", name: "python-pip" }
         - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
         - { state: "latest", name: "build-essential" }
@@ -24,25 +24,13 @@
         - { state: "latest", name: "debian-keyring" }
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "linux-generic" }
+        - { state: "latest", name: "openssh-server" }
         - { state: "latest", name: "python-dev" }
         - { state: "latest", name: "python-minimal" }
         - { state: "latest", name: "tasksel" }
-
-    - name: dselect update
-      shell: |
-        DEBIAN_FRONTEND=noninteractive dselect update
-      register: dselect_update_result
-      changed_when: dselect_update_result.rc != 0
-
-    - name: tasksel install
-      shell: |
-        DEBIAN_FRONTEND=noninteractive tasksel install {{ item.name }}
-      with_items:
-        - { name: "openssh-server" }
-        - { name: "server" }
-        - { name: "vanilla-gnome-desktop" }
-      register: tasksel_update_result
-      changed_when: tasksel_update_result.rc != 0
+        - { state: "latest", name: "ubuntu-desktop" }
+        - { state: "latest", name: "ubuntu-server" }
+        - { state: "latest", name: "vanilla-gnome-desktop" }
 
     - name: apt-add-repository
       apt_repository:
@@ -57,6 +45,13 @@
         DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result.rc != 0
+
+    - name: enforce gdm3 with xorg
+      lineinfile:
+        path: "/etc/gdm3/custom.conf"
+        regexp: "^.*WaylandEnable=false$"
+        line: "WaylandEnable=false"
+        state: "present"
 
     - name: fix NetworkManager
       shell: |
@@ -89,3 +84,9 @@
         regexp: "^\t<device oui=\"00:1F:20:\".*$"
         line: "\t<device oui=\"00:1F:20:\" type=\"mouse\" name=\"Bluetooth Mouse M557\" pin=\"0000\" />"
         state: "present"
+
+    - name: fix RTC in UTC
+      shell: |
+        timedatectl set-local-rtc 0 --adjust-system-clock
+      register: result
+      changed_when: result is not succeeded

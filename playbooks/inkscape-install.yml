@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:inkscape.dev/stable" }
+        - { state: "absent", repo: "ppa:inkscape.dev/stable" }
 
     - name: apt install
       apt:

@@ -15,8 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb https://deb.nodesource.com/node_8.x artful main" }
-        - { state: "present", repo: "deb https://deb.nodesource.com/node_10.x bionic main" }
+        - { state: "absent", repo: "deb https://deb.nodesource.com/node_10.x cosmic main" }
+        - { state: "present", repo: "deb https://deb.nodesource.com/node_11.x cosmic main" }
 
     - name: apt install
       apt:
@@ -30,6 +30,7 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
         global: "yes"
+        executable: "/usr/bin/npm --unsafe-perm --allow-root"
       with_items:
         - { state: "latest", name: "eslint" }
         - { state: "latest", name: "node-sass" }

@@ -15,8 +15,6 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main" }
-        - { state: "absent", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client bionic main" }
         - { state: "present", repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client artful main" }
 
     - name: apt install

@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "ppa:mozillateam/thunderbird-next" }
+        - { state: "present", repo: "ppa:mozillateam/thunderbird-next" }
 
     - name: apt install
       apt:
@@ -26,3 +26,4 @@
         - { state: "latest", name: "thunderbird-locale-zh-hans" }
         - { state: "latest", name: "thunderbird-locale-zh-hant" }
         - { state: "latest", name: "thunderbird-locale-zh-tw" }
+        - { state: "latest", name: "xul-ext-lightning" }

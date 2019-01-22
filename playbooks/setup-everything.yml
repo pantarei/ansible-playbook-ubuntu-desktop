@@ -6,6 +6,8 @@
 - import_playbook: setup-packages.yml
 - import_playbook: setup-multilingual.yml
 
+- import_playbook: ansible-install.yml
+- import_playbook: apache2-install.yml
 - import_playbook: chrome-install.yml
 - import_playbook: docker-install.yml
 - import_playbook: firefox-install.yml
@@ -16,6 +18,8 @@
 - import_playbook: hipchat-install.yml
 - import_playbook: inkscape-install.yml
 - import_playbook: libreoffice-install.yml
+- import_playbook: mariadb-install.yml
+- import_playbook: nodejs-install.yml
+- import_playbook: php-install.yml
 - import_playbook: thunderbird-install.yml
 - import_playbook: virtualbox-install.yml
-- import_playbook: yaru-theme-install.yml

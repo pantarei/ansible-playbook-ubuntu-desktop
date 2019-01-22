@@ -14,12 +14,15 @@
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
+        install_recommends: "no"
       with_items:
-        - { state: "latest", name: "php-apcu" }
-        - { state: "latest", name: "php-apcu-bc" }
-        - { state: "latest", name: "php-memcache" }
-        - { state: "latest", name: "php-uuid" }
-        - { state: "latest", name: "php-xdebug" }
+        - { state: "latest", name: "geoip-database" }
+        - { state: "latest", name: "geoip-database-extra" }
+        - { state: "latest", name: "imagemagick" }
+        - { state: "latest", name: "libssl-dev" }
+        - { state: "latest", name: "mysql-client" }
+        - { state: "latest", name: "postgresql-client" }
+        - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "php5.6-bcmath" }
         - { state: "latest", name: "php5.6-bz2" }
         - { state: "latest", name: "php5.6-cli" }
@@ -34,55 +37,13 @@
         - { state: "latest", name: "php5.6-mysql" }
         - { state: "latest", name: "php5.6-opcache" }
         - { state: "latest", name: "php5.6-pgsql" }
-        - { state: "latest", name: "php5.6-snmp" }
         - { state: "latest", name: "php5.6-soap" }
         - { state: "latest", name: "php5.6-sqlite3" }
         - { state: "latest", name: "php5.6-tidy" }
         - { state: "latest", name: "php5.6-xml" }
         - { state: "latest", name: "php5.6-xmlrpc" }
+        - { state: "latest", name: "php5.6-xsl" }
         - { state: "latest", name: "php5.6-zip" }
-        - { state: "latest", name: "php7.0-bcmath" }
-        - { state: "latest", name: "php7.0-bz2" }
-        - { state: "latest", name: "php7.0-cli" }
-        - { state: "latest", name: "php7.0-curl" }
-        - { state: "latest", name: "php7.0-fpm" }
-        - { state: "latest", name: "php7.0-gd" }
-        - { state: "latest", name: "php7.0-imap" }
-        - { state: "latest", name: "php7.0-intl" }
-        - { state: "latest", name: "php7.0-json" }
-        - { state: "latest", name: "php7.0-ldap" }
-        - { state: "latest", name: "php7.0-mbstring" }
-        - { state: "latest", name: "php7.0-mysql" }
-        - { state: "latest", name: "php7.0-opcache" }
-        - { state: "latest", name: "php7.0-pgsql" }
-        - { state: "latest", name: "php7.0-snmp" }
-        - { state: "latest", name: "php7.0-soap" }
-        - { state: "latest", name: "php7.0-sqlite3" }
-        - { state: "latest", name: "php7.0-tidy" }
-        - { state: "latest", name: "php7.0-xml" }
-        - { state: "latest", name: "php7.0-xmlrpc" }
-        - { state: "latest", name: "php7.0-zip" }
-        - { state: "latest", name: "php7.1-bcmath" }
-        - { state: "latest", name: "php7.1-bz2" }
-        - { state: "latest", name: "php7.1-cli" }
-        - { state: "latest", name: "php7.1-curl" }
-        - { state: "latest", name: "php7.1-fpm" }
-        - { state: "latest", name: "php7.1-gd" }
-        - { state: "latest", name: "php7.1-imap" }
-        - { state: "latest", name: "php7.1-intl" }
-        - { state: "latest", name: "php7.1-json" }
-        - { state: "latest", name: "php7.1-ldap" }
-        - { state: "latest", name: "php7.1-mbstring" }
-        - { state: "latest", name: "php7.1-mysql" }
-        - { state: "latest", name: "php7.1-opcache" }
-        - { state: "latest", name: "php7.1-pgsql" }
-        - { state: "latest", name: "php7.1-snmp" }
-        - { state: "latest", name: "php7.1-soap" }
-        - { state: "latest", name: "php7.1-sqlite3" }
-        - { state: "latest", name: "php7.1-tidy" }
-        - { state: "latest", name: "php7.1-xml" }
-        - { state: "latest", name: "php7.1-xmlrpc" }
-        - { state: "latest", name: "php7.1-zip" }
         - { state: "latest", name: "php7.2-bcmath" }
         - { state: "latest", name: "php7.2-bz2" }
         - { state: "latest", name: "php7.2-cli" }
@@ -97,13 +58,20 @@
         - { state: "latest", name: "php7.2-mysql" }
         - { state: "latest", name: "php7.2-opcache" }
         - { state: "latest", name: "php7.2-pgsql" }
-        - { state: "latest", name: "php7.2-snmp" }
         - { state: "latest", name: "php7.2-soap" }
         - { state: "latest", name: "php7.2-sqlite3" }
         - { state: "latest", name: "php7.2-tidy" }
         - { state: "latest", name: "php7.2-xml" }
         - { state: "latest", name: "php7.2-xmlrpc" }
+        - { state: "latest", name: "php7.2-xsl" }
         - { state: "latest", name: "php7.2-zip" }
+        - { state: "latest", name: "php-apcu" }
+        - { state: "latest", name: "php-apcu-bc" }
+        - { state: "latest", name: "php-geoip" }
+        - { state: "latest", name: "php-imagick" }
+        - { state: "latest", name: "php-memcached" }
+        - { state: "latest", name: "php-uuid" }
+        - { state: "latest", name: "php-xdebug" }
 
     - name: phpenmod
       php_module:
@@ -165,13 +133,11 @@
         enabled: "{{ item.enabled }}"
       with_items:
         - { name: "php5.6-fpm", enabled: "yes" }
-        - { name: "php7.0-fpm", enabled: "yes" }
-        - { name: "php7.1-fpm", enabled: "yes" }
         - { name: "php7.2-fpm", enabled: "yes" }
 
     - name: install composer globally
       shell: |
-        curl -sL https://getcomposer.org/download/1.6.1/composer.phar > /usr/local/bin/composer
+        curl -sL https://getcomposer.org/download/1.7.3/composer.phar > /usr/local/bin/composer
         chown root:root /usr/local/bin/composer
         chmod 777 /usr/local/bin/composer
       args:
@@ -182,6 +148,7 @@
         composer self-update --no-interaction
       register: composer_self_update_result
       changed_when: "'You are already using composer' not in composer_self_update_result.stderr"
+      ignore_errors: yes
 
     - name: composer global init
       shell: |
@@ -210,14 +177,15 @@
         cgr require {{ item.name }}
       with_items:
         - { name: "drupal/coder:@stable" }
-        - { name: "drupal/console:~1.0" }
-        - { name: "drush/drush:~8.0" }
+        - { name: "drupal/console:@stable" }
+        - { name: "drush/drush:~8.1" }
         - { name: "friendsofphp/php-cs-fixer:@stable" }
         - { name: "phpunit/phpunit:~5.7" }
         - { name: "sami/sami:@stable" }
         - { name: "squizlabs/php_codesniffer:@stable" }
       register: cgr_require_result
       changed_when: cgr_require_result.rc != 0
+      ignore_errors: "yes"
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"
         COMPOSER_BIN_DIR: "/usr/local/bin"
@@ -228,6 +196,7 @@
         cgr update
       register: cgr_update_result
       changed_when: "'Package operations:' in cgr_update_result.stderr"
+      ignore_errors: "yes"
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"
         COMPOSER_BIN_DIR: "/usr/local/bin"
