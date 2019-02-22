@@ -50,7 +50,7 @@
       when:
         - start_service_result.results[0].state == "started"
       register: disable_anonymous_access_result
-      changed_when: disable_anonymous_access_result.rc != 0
+      changed_when: disable_anonymous_access_result is not succeeded
       ignore_errors: yes
 
     - name: disable mysql root remote access
@@ -59,7 +59,7 @@
       when:
         - start_service_result.results[0].state == "started"
       register: disable_root_remote_access_result
-      changed_when: disable_root_remote_access_result.rc != 0
+      changed_when: disable_root_remote_access_result is not succeeded
       ignore_errors: yes
 
     - name: enable service

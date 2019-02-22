@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: snap install slack --classic
+      command: snap install slack --classic
+      register: result
+      changed_when: result is not succeeded

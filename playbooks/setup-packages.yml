@@ -62,6 +62,7 @@
         - { state: "latest", name: "libimobiledevice-utils" }
         - { state: "latest", name: "libimobiledevice6" }
         - { state: "latest", name: "lsb" }
+        - { state: "latest", name: "mcomix" }
         - { state: "latest", name: "mcrypt" }
         - { state: "latest", name: "network-manager-openvpn-gnome" }
         - { state: "latest", name: "nmap" }
@@ -76,6 +77,7 @@
         - { state: "latest", name: "python-gi" }
         - { state: "latest", name: "remmina" }
         - { state: "latest", name: "smartmontools" }
+        - { state: "latest", name: "snapd" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "sshfs" }
         - { state: "latest", name: "tlp" }
