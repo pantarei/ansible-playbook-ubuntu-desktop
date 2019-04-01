@@ -155,7 +155,7 @@
         mkdir -p $COMPOSER_HOME
         composer global init --no-interaction
       register: composer_global_init_result
-      changed_when: composer_global_init_result.rc != 0
+      changed_when: composer_global_init_result is not succeeded
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"
         COMPOSER_BIN_DIR: "/usr/local/bin"
@@ -167,7 +167,7 @@
         - { status: 'require', name: 'hirak/prestissimo:@stable' }
         - { status: 'require', name: 'consolidation/cgr:@stable' }
       register: composer_global_require_result
-      changed_when: composer_global_require_result.rc != 0
+      changed_when: composer_global_require_result is not succeeded
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"
         COMPOSER_BIN_DIR: "/usr/local/bin"
@@ -184,7 +184,7 @@
         - { name: "sami/sami:@stable" }
         - { name: "squizlabs/php_codesniffer:@stable" }
       register: cgr_require_result
-      changed_when: cgr_require_result.rc != 0
+      changed_when: cgr_require_result is not succeeded
       ignore_errors: "yes"
       environment:
         COMPOSER_HOME: "/usr/local/share/composer"

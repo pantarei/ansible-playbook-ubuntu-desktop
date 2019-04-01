@@ -44,7 +44,7 @@
       shell: |
         DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
       register: ubuntu_drivers_autoinstall_result
-      changed_when: ubuntu_drivers_autoinstall_result.rc != 0
+      changed_when: ubuntu_drivers_autoinstall_result is not succeeded
 
     - name: enforce gdm3 with xorg
       lineinfile:
@@ -58,7 +58,7 @@
         rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
         rm -rf /etc/netplan/*
       register: fix_networkmanager_result
-      changed_when: fix_networkmanager_result.rc != 0
+      changed_when: fix_networkmanager_result is not succeeded
 
     - name: fix grub2
       shell: |
@@ -69,7 +69,7 @@
         sed -i 's/^\(GRUB_CMDLINE_LINUX\)=\(.*\)$/\1="cgroup_enable=memory swapaccount=1"/g' /etc/default/grub
         update-grub
       register: fix_grub2_result
-      changed_when: fix_grub2_result.rc != 0
+      changed_when: fix_grub2_result is not succeeded
 
     - name: fix resolv.conf
       file:

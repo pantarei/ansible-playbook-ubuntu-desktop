@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: snap install lxd
+      command: snap install lxd
+      register: result
+      changed_when: result is not succeeded

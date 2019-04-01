@@ -19,7 +19,7 @@
       shell: |
         curl -sL https://bootstrap.pypa.io/get-pip.py | python
       register: python_get_pip_result
-      changed_when: python_get_pip_result.rc != 0
+      changed_when: python_get_pip_result is not succeeded
 
     - name: pip install
       pip:
