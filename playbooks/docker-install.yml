@@ -33,6 +33,7 @@
     - name: enable service
       service:
         name: "{{ item.name }}"
+        state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "docker", enabled: "yes" }
+        - { name: "docker", state: "started", enabled: "yes" }

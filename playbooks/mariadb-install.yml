@@ -41,8 +41,9 @@
       service:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
+        enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "mysql", state: "started" }
+        - { name: "mysql", state: "started", enabled: "no" }
       register: start_service_result
 
     - name: disable mysqsl anonymous access

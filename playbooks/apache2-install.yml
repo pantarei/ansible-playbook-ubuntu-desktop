@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:ondrej/apache2" }
+        - { state: "absent", repo: "ppa:ondrej/apache2" }
 
     - name: apt install
       apt:
@@ -68,6 +68,7 @@
     - name: enable service
       service:
         name: "{{ item.name }}"
+        state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "apache2", enabled: "yes" }
+        - { name: "apache2", state: "started", enabled: "no" }
