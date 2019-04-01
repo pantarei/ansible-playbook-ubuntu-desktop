@@ -15,7 +15,8 @@
       with_items:
         - { state: "absent", repo: "deb http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu bionic main" }
         - { state: "absent", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu bionic main" }
-        - { state: "present", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu cosmic main" }
+        - { state: "absent", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu cosmic main" }
+        - { state: "present", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.4/ubuntu cosmic main" }
 
     - name: debconf-set-selections
       debconf:
@@ -24,8 +25,8 @@
         question: "{{ item.question }}"
         value: "{{ item.value }}"
       with_items:
-        - { name: "mariadb-server-10.3", vtype: "password", question: "mysql-server/root_password", value: "" }
-        - { name: "mariadb-server-10.3", vtype: "password", question: "mysql-server/root_password_again", value: "" }
+        - { name: "mariadb-server-10.4", vtype: "password", question: "mysql-server/root_password", value: "" }
+        - { name: "mariadb-server-10.4", vtype: "password", question: "mysql-server/root_password_again", value: "" }
       changed_when: false
 
     - name: apt install
@@ -33,8 +34,8 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "mariadb-client-10.3" }
-        - { state: "latest", name: "mariadb-server-10.3" }
+        - { state: "latest", name: "mariadb-client-10.4" }
+        - { state: "latest", name: "mariadb-server-10.4" }
 
     - name: start service
       service:
