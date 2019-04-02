@@ -72,9 +72,11 @@
         - { state: "latest", name: "p7zip" }
         - { state: "latest", name: "p7zip-full" }
         - { state: "latest", name: "pandoc" }
+        - { state: "latest", name: "pitivi" }
         - { state: "latest", name: "playonlinux" }
         - { state: "latest", name: "pwgen" }
         - { state: "latest", name: "python-gi" }
+        - { state: "latest", name: "rclone" }
         - { state: "latest", name: "remmina" }
         - { state: "latest", name: "smartmontools" }
         - { state: "latest", name: "snapd" }
