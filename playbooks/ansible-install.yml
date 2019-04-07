@@ -25,4 +25,4 @@
         - { state: "latest", name: "ansible" }
         - { state: "latest", name: "yamllint" }
         - { state: "latest", name: "ansible-lint" }
-        - { state: "latest", name: "git+https://github.com/ansible/molecule.git#egg=molecule" }
+        - { state: "latest", name: "molecule" }
