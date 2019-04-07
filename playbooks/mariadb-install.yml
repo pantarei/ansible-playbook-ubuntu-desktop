@@ -60,10 +60,3 @@
       register: disable_root_remote_access_result
       changed_when: disable_root_remote_access_result is not succeeded
       ignore_errors: yes
-
-    - name: enable service
-      service:
-        name: "{{ item.name }}"
-        enabled: "{{ item.enabled }}"
-      with_items:
-        - { name: "mysql", enabled: "yes" }
