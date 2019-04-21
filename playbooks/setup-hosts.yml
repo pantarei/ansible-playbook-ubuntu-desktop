@@ -46,6 +46,24 @@
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result is not succeeded
 
+    - name: copy templates
+      template:
+        src: "./templates{{ item.dest }}.j2"
+        dest: "{{ item.dest }}"
+        owner: "{{ item.owner | default('root') }}"
+        group: "{{ item.group | default('root') }}"
+        mode: "{{ item.mode | default('0644') }}"
+      with_items:
+        - { dest: "/etc/apt/sources.list" }
+        - { dest: "/etc/dconf/db/ibus.d/99-custom-settings" }
+        - { dest: "/etc/ssh/ssh_config" }
+
+    - name: dconf update
+      shell: |
+        dconf update
+      register: result
+      changed_when: result is not succeeded
+
     - name: enforce gdm3 with xorg
       lineinfile:
         path: "/etc/gdm3/custom.conf"
