@@ -31,6 +31,7 @@
     - name: install git-flow manually
       shell: |
         curl -skL https://raw.githubusercontent.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh | bash -s -- install stable
+        curl -skL https://raw.githubusercontent.com/petervanderdoes/git-flow-completion/develop/git-flow-completion.bash > /etc/bash_completion.d/git-flow-completion.bash
       args:
         executable: "/bin/bash"
       register: result
