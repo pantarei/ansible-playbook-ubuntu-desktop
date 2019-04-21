@@ -39,7 +39,7 @@
         - { state: "latest", name: "gir1.2-gmenu-3.0" }
         - { state: "latest", name: "gir1.2-gtk-3.0" }
         - { state: "latest", name: "gir1.2-gtop-2.0" }
-        - { state: "latest", name: "gir1.2-mutter-3" }
+        - { state: "latest", name: "gir1.2-mutter-4" }
         - { state: "latest", name: "gir1.2-pango-1.0" }
         - { state: "latest", name: "gnome-system-tools" }
         - { state: "latest", name: "gnome-tweak-tool" }
@@ -72,9 +72,11 @@
         - { state: "latest", name: "p7zip" }
         - { state: "latest", name: "p7zip-full" }
         - { state: "latest", name: "pandoc" }
+        - { state: "latest", name: "pitivi" }
         - { state: "latest", name: "playonlinux" }
         - { state: "latest", name: "pwgen" }
         - { state: "latest", name: "python-gi" }
+        - { state: "latest", name: "rclone" }
         - { state: "latest", name: "remmina" }
         - { state: "latest", name: "smartmontools" }
         - { state: "latest", name: "snapd" }

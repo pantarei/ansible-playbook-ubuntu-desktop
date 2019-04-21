@@ -13,9 +13,6 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu bionic main" }
-        - { state: "absent", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu bionic main" }
-        - { state: "absent", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.3/ubuntu cosmic main" }
         - { state: "present", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.4/ubuntu cosmic main" }
 
     - name: debconf-set-selections
@@ -41,8 +38,9 @@
       service:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
+        enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "mysql", state: "started" }
+        - { name: "mysql", state: "started", enabled: "no" }
       register: start_service_result
 
     - name: disable mysqsl anonymous access
@@ -62,10 +60,3 @@
       register: disable_root_remote_access_result
       changed_when: disable_root_remote_access_result is not succeeded
       ignore_errors: yes
-
-    - name: enable service
-      service:
-        name: "{{ item.name }}"
-        enabled: "{{ item.enabled }}"
-      with_items:
-        - { name: "mysql", enabled: "yes" }

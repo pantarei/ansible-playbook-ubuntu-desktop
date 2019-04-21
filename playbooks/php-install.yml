@@ -130,10 +130,11 @@
     - name: enable service
       service:
         name: "{{ item.name }}"
+        state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "php5.6-fpm", enabled: "yes" }
-        - { name: "php7.2-fpm", enabled: "yes" }
+        - { name: "php5.6-fpm", state: "started", enabled: "no" }
+        - { name: "php7.2-fpm", state: "started", enabled: "no" }
 
     - name: install composer globally
       shell: |

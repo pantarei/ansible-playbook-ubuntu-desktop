@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "ppa:mozillateam/thunderbird-next" }
+        - { state: "absent", repo: "ppa:mozillateam/thunderbird-next" }
 
     - name: apt install
       apt:

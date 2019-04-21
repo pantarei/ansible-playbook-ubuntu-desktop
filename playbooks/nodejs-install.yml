@@ -15,7 +15,6 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb https://deb.nodesource.com/node_10.x cosmic main" }
         - { state: "present", repo: "deb https://deb.nodesource.com/node_11.x cosmic main" }
 
     - name: apt install

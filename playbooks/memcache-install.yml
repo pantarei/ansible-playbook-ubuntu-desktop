@@ -20,6 +20,7 @@
     - name: enable service
       service:
         name: "{{ item.name }}"
+        state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "memcached", enabled: "yes" }
+        - { name: "memcached", state: "started", enabled: "no" }

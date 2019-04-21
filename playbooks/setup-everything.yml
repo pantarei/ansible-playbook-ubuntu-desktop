@@ -14,7 +14,6 @@
 - import_playbook: fprint-install.yml
 - import_playbook: gimp-install.yml
 - import_playbook: git-install.yml
-- import_playbook: google-drive-ocamlfuse-install.yml
 - import_playbook: inkscape-install.yml
 - import_playbook: libreoffice-install.yml
 - import_playbook: lxd-install.yml

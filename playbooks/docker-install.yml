@@ -15,10 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge" }
-        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" }
-        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test" }
-        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu cosmic stable" }
+        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu cosmic stable" }
+        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco test" }
 
     - name: apt install
       apt:
@@ -33,6 +31,7 @@
     - name: enable service
       service:
         name: "{{ item.name }}"
+        state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "docker", enabled: "yes" }
+        - { name: "docker", state: "started", enabled: "yes" }
