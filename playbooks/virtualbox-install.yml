@@ -15,7 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian cosmic contrib" }
+        - { state: "absent", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian cosmic contrib" }
+        - { state: "present", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian disco contrib" }
 
     - name: apt install
       apt:
