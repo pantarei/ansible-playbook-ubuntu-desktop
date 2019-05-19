@@ -23,6 +23,9 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "ansible" }
-        - { state: "latest", name: "yamllint" }
         - { state: "latest", name: "ansible-lint" }
-        - { state: "latest", name: "molecule" }
+        - { state: "latest", name: "flake8" }
+        - { state: "latest", name: "netaddr" }
+        - { state: "latest", name: "testinfra" }
+        - { state: "latest", name: "yamllint" }
+        - { state: "present", name: "git+https://github.com/ansible/molecule.git@master#egg=molecule" }
