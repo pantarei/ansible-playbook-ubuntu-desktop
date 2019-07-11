@@ -12,8 +12,8 @@
         - { state: "latest", name: "curl" }
         - { state: "latest", name: "libffi-dev" }
         - { state: "latest", name: "libssl-dev" }
+        - { state: "latest", name: "python" }
         - { state: "latest", name: "python-dev" }
-        - { state: "latest", name: "python-minimal" }
 
     - name: python get-pip.py
       shell: |

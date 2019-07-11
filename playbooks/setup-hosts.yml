@@ -25,8 +25,8 @@
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "linux-generic" }
         - { state: "latest", name: "openssh-server" }
+        - { state: "latest", name: "python" }
         - { state: "latest", name: "python-dev" }
-        - { state: "latest", name: "python-minimal" }
         - { state: "latest", name: "tasksel" }
         - { state: "latest", name: "ubuntu-desktop" }
         - { state: "latest", name: "ubuntu-server" }

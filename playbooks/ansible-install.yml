@@ -22,8 +22,13 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "latest", name: "ansible" }
-        - { state: "latest", name: "ansible-lint" }
         - { state: "latest", name: "netaddr" }
         - { state: "latest", name: "yamllint" }
+        - { state: "latest", name: "flake8" }
+        - { state: "latest", name: "openshift>=0.9.0" }
+        - { state: "latest", name: "testinfra>=3.0.4" }
+        - { state: "latest", name: "python-vagrant" }
+        - { state: "latest", name: "docker>=2.0.0" }
+        - { state: "latest", name: "ansible>=2.8.0" }
+        - { state: "latest", name: "ansible-lint" }
         - { state: "latest", name: "molecule" }
