@@ -40,7 +40,7 @@
         state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "mysql", state: "started", enabled: "no" }
+        - { name: "mariadb", state: "started", enabled: "no" }
       register: start_service_result
 
     - name: disable mysqsl anonymous access
@@ -60,3 +60,10 @@
       register: disable_root_remote_access_result
       changed_when: disable_root_remote_access_result is not succeeded
       ignore_errors: yes
+
+    - name: bugfix permission /usr/lib/mysql/plugin/auth_pam_tool_dir
+      shell: |
+        chmod 0755 /usr/lib/mysql/plugin/auth_pam_tool_dir
+        chmod 4755 /usr/lib/mysql/plugin/auth_pam_tool_dir/*
+      register: result
+      changed_when: result is not succeeded
