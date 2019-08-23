@@ -3,6 +3,18 @@
 - hosts: all
   remote_user: root
   tasks:
+    - name: copy templates
+      template:
+        src: "./templates{{ item.dest }}.j2"
+        dest: "{{ item.dest }}"
+        owner: "{{ item.owner | default('root') }}"
+        group: "{{ item.group | default('root') }}"
+        mode: "{{ item.mode | default('0644') }}"
+      with_items:
+        - { dest: "/etc/apt/sources.list" }
+        - { dest: "/etc/dconf/db/ibus.d/99-custom-settings" }
+        - { dest: "/etc/ssh/ssh_config" }
+
     - name: apt-get dist-upgrade
       apt:
         cache_valid_time: "3600"
@@ -45,18 +57,6 @@
         DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result is not succeeded
-
-    - name: copy templates
-      template:
-        src: "./templates{{ item.dest }}.j2"
-        dest: "{{ item.dest }}"
-        owner: "{{ item.owner | default('root') }}"
-        group: "{{ item.group | default('root') }}"
-        mode: "{{ item.mode | default('0644') }}"
-      with_items:
-        - { dest: "/etc/apt/sources.list" }
-        - { dest: "/etc/dconf/db/ibus.d/99-custom-settings" }
-        - { dest: "/etc/ssh/ssh_config" }
 
     - name: dconf update
       shell: |

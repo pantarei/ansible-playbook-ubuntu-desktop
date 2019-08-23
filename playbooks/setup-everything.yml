@@ -21,5 +21,6 @@
 - import_playbook: nodejs-install.yml
 - import_playbook: php-install.yml
 - import_playbook: slack-install.yml
+- import_playbook: teamviewer-install.yml
 - import_playbook: thunderbird-install.yml
 - import_playbook: virtualbox-install.yml
