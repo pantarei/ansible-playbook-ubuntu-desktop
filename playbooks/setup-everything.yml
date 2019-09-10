@@ -23,4 +23,5 @@
 - import_playbook: slack-install.yml
 - import_playbook: teamviewer-install.yml
 - import_playbook: thunderbird-install.yml
+- import_playbook: vagrant-install.yml
 - import_playbook: virtualbox-install.yml
