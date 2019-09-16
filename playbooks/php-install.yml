@@ -178,8 +178,7 @@
         cgr require {{ item.name }}
       with_items:
         - { name: "drupal/coder:@stable" }
-        - { name: "drupal/console:@stable" }
-        - { name: "drush/drush:~8.1" }
+        - { name: "drush/drush-launcher:@stable" }
         - { name: "friendsofphp/php-cs-fixer:@stable" }
         - { name: "phpunit/phpunit:~5.7" }
         - { name: "sami/sami:@stable" }
