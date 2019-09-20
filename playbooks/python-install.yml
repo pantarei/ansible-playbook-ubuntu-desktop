@@ -12,27 +12,39 @@
         - { state: "latest", name: "curl" }
         - { state: "latest", name: "libffi-dev" }
         - { state: "latest", name: "libssl-dev" }
-        - { state: "latest", name: "python" }
-        - { state: "latest", name: "python-dev" }
+        - { state: "latest", name: "python3" }
+        - { state: "latest", name: "python3-dev" }
 
     - name: python get-pip.py
       shell: |
-        curl -sL https://bootstrap.pypa.io/get-pip.py | python
+        set -o pipefail
+        curl -sL https://bootstrap.pypa.io/get-pip.py | python3
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"
+      args:
+        executable: "/bin/bash"
       register: python_get_pip_result
       changed_when: python_get_pip_result is not succeeded
 
     - name: pip install
       pip:
         name: "{{ item.name }}"
-        state: "{{ item.state }}"
+        state: "{{ item.state | default(None) or omit }}"
+        version: "{{ item.version | default(None) or omit }}"
+        extra_args: "{{ item.extra_args | default(None) or omit }}"
+        executable: "pip3"
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"
       with_items:
         - { state: "latest", name: "pip" }
         - { state: "latest", name: "setuptools" }
         - { state: "latest", name: "wheel" }
+        - { state: "latest", name: "requests" }
         - { state: "latest", name: "pycparser" }
         - { state: "latest", name: "pyopenssl" }
         - { state: "latest", name: "ndg-httpsclient" }
         - { state: "latest", name: "chardet" }
         - { state: "latest", name: "pyasn1" }
-        - { state: "latest", name: "requests" }
-        - { state: "present", name: "urllib3" }
+        - { state: "latest", name: "lxml" }
+        - { state: "present", name: "pyyaml", extra_args: "--ignore-installed" }
+        - { state: "latest", name: "urllib3" }

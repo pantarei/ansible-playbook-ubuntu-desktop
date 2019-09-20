@@ -21,6 +21,9 @@
       pip:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
+        executable: "pip3"
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"
       with_items:
         - { state: "latest", name: "netaddr" }
         - { state: "latest", name: "yamllint" }
