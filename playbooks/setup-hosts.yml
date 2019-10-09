@@ -58,6 +58,12 @@
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result is not succeeded
 
+    - name: fwupdmgr -y update
+      shell: |
+        fwupdmgr -y update
+      register: fwupdmgr_result
+      changed_when: fwupdmgr_result is not succeeded
+
     - name: dconf update
       shell: |
         dconf update

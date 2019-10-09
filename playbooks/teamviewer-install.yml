@@ -23,3 +23,11 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "teamviewer" }
+
+    - name: remove duplicated apt source list
+      file:
+        path: "{{ item.path }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", path: "/etc/apt/sources.list.d/teamviewer.list" }
+        - { state: "absent", path: "/etc/apt/sources.list.d/teamviewer.list.save" }
