@@ -3,6 +3,18 @@
 - hosts: all
   remote_user: root
   tasks:
+    - name: copy templates
+      template:
+        src: "./templates{{ item.dest }}.j2"
+        dest: "{{ item.dest }}"
+        owner: "{{ item.owner | default('root') }}"
+        group: "{{ item.group | default('root') }}"
+        mode: "{{ item.mode | default('0644') }}"
+      with_items:
+        - { dest: "/etc/apt/sources.list" }
+        - { dest: "/etc/dconf/db/ibus.d/99-custom-settings" }
+        - { dest: "/etc/ssh/ssh_config" }
+
     - name: apt-get dist-upgrade
       apt:
         cache_valid_time: "3600"
@@ -15,7 +27,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "absent", name: "cloud-init" }
-        - { state: "absent", name: "python-pip" }
+        - { state: "absent", name: "python3-pip" }
         - { state: "latest", name: "apt-transport-https" }
         - { state: "latest", name: "aptitude" }
         - { state: "latest", name: "build-essential" }
@@ -25,8 +37,8 @@
         - { state: "latest", name: "dselect" }
         - { state: "latest", name: "linux-generic" }
         - { state: "latest", name: "openssh-server" }
-        - { state: "latest", name: "python-dev" }
-        - { state: "latest", name: "python-minimal" }
+        - { state: "latest", name: "python3" }
+        - { state: "latest", name: "python3-dev" }
         - { state: "latest", name: "tasksel" }
         - { state: "latest", name: "ubuntu-desktop" }
         - { state: "latest", name: "ubuntu-server" }
@@ -38,7 +50,7 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "present", repo: "ppa:graphics-drivers/ppa" }
-        - { state: "absent", repo: "ppa:ubuntu-x-swat/updates" }
+        - { state: "present", repo: "ppa:ubuntu-x-swat/updates" }
 
     - name: ubuntu-drivers autoinstall
       shell: |
@@ -46,17 +58,11 @@
       register: ubuntu_drivers_autoinstall_result
       changed_when: ubuntu_drivers_autoinstall_result is not succeeded
 
-    - name: copy templates
-      template:
-        src: "./templates{{ item.dest }}.j2"
-        dest: "{{ item.dest }}"
-        owner: "{{ item.owner | default('root') }}"
-        group: "{{ item.group | default('root') }}"
-        mode: "{{ item.mode | default('0644') }}"
-      with_items:
-        - { dest: "/etc/apt/sources.list" }
-        - { dest: "/etc/dconf/db/ibus.d/99-custom-settings" }
-        - { dest: "/etc/ssh/ssh_config" }
+    - name: fwupdmgr -y update
+      shell: |
+        fwupdmgr -y update
+      register: fwupdmgr_result
+      changed_when: fwupdmgr_result is not succeeded
 
     - name: dconf update
       shell: |

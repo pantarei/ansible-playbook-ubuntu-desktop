@@ -15,7 +15,6 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", name: "apache2-mpm-itk" }
         - { state: "absent", name: "apache2-mpm-prefork" }
         - { state: "absent", name: "apache2-mpm-worker" }
         - { state: "absent", name: "apache2-suexec-custom" }
@@ -29,13 +28,14 @@
         - { state: "latest", name: "apache2-data" }
         - { state: "latest", name: "apache2-doc" }
         - { state: "latest", name: "apache2-utils" }
+        - { state: "latest", name: "libapache2-mpm-itk" }
 
     - name: a2enmod
       apache2_module:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", name: "mpm_prefork" }
+        - { state: "absent", name: "mpm_event" }
         - { state: "absent", name: "mpm_worker" }
         - { state: "present", name: "access_compat" }
         - { state: "present", name: "actions" }
@@ -54,7 +54,8 @@
         - { state: "present", name: "filter" }
         - { state: "present", name: "headers" }
         - { state: "present", name: "mime" }
-        - { state: "present", name: "mpm_event" }
+        - { state: "present", name: "mpm_itk" }
+        - { state: "present", name: "mpm_prefork" }
         - { state: "present", name: "negotiation" }
         - { state: "present", name: "proxy" }
         - { state: "present", name: "proxy_fcgi" }

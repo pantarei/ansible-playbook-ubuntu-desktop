@@ -23,48 +23,27 @@
         - { state: "latest", name: "mysql-client" }
         - { state: "latest", name: "postgresql-client" }
         - { state: "latest", name: "sqlite3" }
-        - { state: "latest", name: "php5.6-bcmath" }
-        - { state: "latest", name: "php5.6-bz2" }
-        - { state: "latest", name: "php5.6-cli" }
-        - { state: "latest", name: "php5.6-curl" }
-        - { state: "latest", name: "php5.6-fpm" }
-        - { state: "latest", name: "php5.6-gd" }
-        - { state: "latest", name: "php5.6-imap" }
-        - { state: "latest", name: "php5.6-intl" }
-        - { state: "latest", name: "php5.6-json" }
-        - { state: "latest", name: "php5.6-ldap" }
-        - { state: "latest", name: "php5.6-mbstring" }
-        - { state: "latest", name: "php5.6-mysql" }
-        - { state: "latest", name: "php5.6-opcache" }
-        - { state: "latest", name: "php5.6-pgsql" }
-        - { state: "latest", name: "php5.6-soap" }
-        - { state: "latest", name: "php5.6-sqlite3" }
-        - { state: "latest", name: "php5.6-tidy" }
-        - { state: "latest", name: "php5.6-xml" }
-        - { state: "latest", name: "php5.6-xmlrpc" }
-        - { state: "latest", name: "php5.6-xsl" }
-        - { state: "latest", name: "php5.6-zip" }
-        - { state: "latest", name: "php7.2-bcmath" }
-        - { state: "latest", name: "php7.2-bz2" }
-        - { state: "latest", name: "php7.2-cli" }
-        - { state: "latest", name: "php7.2-curl" }
-        - { state: "latest", name: "php7.2-fpm" }
-        - { state: "latest", name: "php7.2-gd" }
-        - { state: "latest", name: "php7.2-imap" }
-        - { state: "latest", name: "php7.2-intl" }
-        - { state: "latest", name: "php7.2-json" }
-        - { state: "latest", name: "php7.2-ldap" }
-        - { state: "latest", name: "php7.2-mbstring" }
-        - { state: "latest", name: "php7.2-mysql" }
-        - { state: "latest", name: "php7.2-opcache" }
-        - { state: "latest", name: "php7.2-pgsql" }
-        - { state: "latest", name: "php7.2-soap" }
-        - { state: "latest", name: "php7.2-sqlite3" }
-        - { state: "latest", name: "php7.2-tidy" }
-        - { state: "latest", name: "php7.2-xml" }
-        - { state: "latest", name: "php7.2-xmlrpc" }
-        - { state: "latest", name: "php7.2-xsl" }
-        - { state: "latest", name: "php7.2-zip" }
+        - { state: "latest", name: "php7.3-bcmath" }
+        - { state: "latest", name: "php7.3-bz2" }
+        - { state: "latest", name: "php7.3-cli" }
+        - { state: "latest", name: "php7.3-curl" }
+        - { state: "latest", name: "php7.3-fpm" }
+        - { state: "latest", name: "php7.3-gd" }
+        - { state: "latest", name: "php7.3-imap" }
+        - { state: "latest", name: "php7.3-intl" }
+        - { state: "latest", name: "php7.3-json" }
+        - { state: "latest", name: "php7.3-ldap" }
+        - { state: "latest", name: "php7.3-mbstring" }
+        - { state: "latest", name: "php7.3-mysql" }
+        - { state: "latest", name: "php7.3-opcache" }
+        - { state: "latest", name: "php7.3-pgsql" }
+        - { state: "latest", name: "php7.3-soap" }
+        - { state: "latest", name: "php7.3-sqlite3" }
+        - { state: "latest", name: "php7.3-tidy" }
+        - { state: "latest", name: "php7.3-xml" }
+        - { state: "latest", name: "php7.3-xmlrpc" }
+        - { state: "latest", name: "php7.3-xsl" }
+        - { state: "latest", name: "php7.3-zip" }
         - { state: "latest", name: "php-apcu" }
         - { state: "latest", name: "php-apcu-bc" }
         - { state: "latest", name: "php-geoip" }
@@ -133,8 +112,7 @@
         state: "{{ item.state }}"
         enabled: "{{ item.enabled }}"
       with_items:
-        - { name: "php5.6-fpm", state: "started", enabled: "no" }
-        - { name: "php7.2-fpm", state: "started", enabled: "no" }
+        - { name: "php7.3-fpm", state: "started", enabled: "no" }
 
     - name: install composer globally
       shell: |
@@ -178,10 +156,9 @@
         cgr require {{ item.name }}
       with_items:
         - { name: "drupal/coder:@stable" }
-        - { name: "drupal/console:@stable" }
-        - { name: "drush/drush:~8.1" }
+        - { name: "drush/drush-launcher:@stable" }
         - { name: "friendsofphp/php-cs-fixer:@stable" }
-        - { name: "phpunit/phpunit:~5.7" }
+        - { name: "phpunit/phpunit:@stable" }
         - { name: "sami/sami:@stable" }
         - { name: "squizlabs/php_codesniffer:@stable" }
       register: cgr_require_result
