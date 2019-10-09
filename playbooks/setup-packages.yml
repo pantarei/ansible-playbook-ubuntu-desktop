@@ -39,7 +39,7 @@
         - { state: "latest", name: "gir1.2-gmenu-3.0" }
         - { state: "latest", name: "gir1.2-gtk-3.0" }
         - { state: "latest", name: "gir1.2-gtop-2.0" }
-        - { state: "latest", name: "gir1.2-mutter-4" }
+        - { state: "latest", name: "gir1.2-mutter-5" }
         - { state: "latest", name: "gir1.2-pango-1.0" }
         - { state: "latest", name: "gnome-system-tools" }
         - { state: "latest", name: "gnome-tweak-tool" }
