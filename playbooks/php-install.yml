@@ -8,7 +8,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "ppa:ondrej/php" }
+        - { state: "present", repo: "ppa:ondrej/php" }
 
     - name: apt install
       apt:

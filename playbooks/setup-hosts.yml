@@ -114,3 +114,11 @@
         timedatectl set-local-rtc 0 --adjust-system-clock
       register: result
       changed_when: result is not succeeded
+
+    - name: disable network printer auto detect
+      shell: |
+        sed -i 's/^#*\s*BrowseProtocols.*$/BrowseProtocols none/g' /etc/cups/cups-browsed.conf
+        systemctl restart cups-browsed
+        systemctl restart cups
+      register: result
+      changed_when: result is not succeeded

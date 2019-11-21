@@ -15,8 +15,11 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian cosmic contrib" }
         - { state: "present", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian disco contrib" }
+
+    - name: apt install libvpx5
+      apt:
+        deb: "http://archive.ubuntu.com/ubuntu/pool/main/libv/libvpx/libvpx5_1.7.0-3_amd64.deb"
 
     - name: apt install
       apt:

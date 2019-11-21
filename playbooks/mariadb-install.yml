@@ -13,8 +13,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.4/ubuntu cosmic main" }
-        - { state: "present", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.4/ubuntu disco main" }
+        - { state: "present", repo: "deb [arch=amd64] http://ftp.osuosl.org/pub/mariadb/repo/10.4/ubuntu eoan main" }
 
     - name: debconf-set-selections
       debconf:
