@@ -17,10 +17,9 @@
         install_recommends: "no"
       with_items:
         - { state: "latest", name: "geoip-database" }
-        - { state: "latest", name: "geoip-database-extra" }
         - { state: "latest", name: "imagemagick" }
         - { state: "latest", name: "libssl-dev" }
-        - { state: "latest", name: "mysql-client" }
+        - { state: "latest", name: "mariadb-client" }
         - { state: "latest", name: "postgresql-client" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "php7.3-bcmath" }

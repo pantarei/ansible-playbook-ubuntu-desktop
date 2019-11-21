@@ -9,7 +9,7 @@
         id: "{{ item.id }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", keyserver: "pgp.mit.edu", id: "AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4" }
+        - { state: "present", keyserver: "keyserver.ubuntu.com", id: "AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4" }
 
     - name: apt-add-repository
       apt_repository:

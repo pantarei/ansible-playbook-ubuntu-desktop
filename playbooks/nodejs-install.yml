@@ -15,9 +15,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "absent", repo: "deb https://deb.nodesource.com/node_11.x cosmic main" }
-        - { state: "absent", repo: "deb https://deb.nodesource.com/node_11.x disco main" }
-        - { state: "present", repo: "deb https://deb.nodesource.com/node_12.x disco main" }
+        - { state: "present", repo: "deb https://deb.nodesource.com/node_12.x eoan main" }
 
     - name: apt install
       apt:
@@ -34,5 +32,7 @@
         executable: "/usr/bin/npm --unsafe-perm --allow-root"
       with_items:
         - { state: "latest", name: "eslint" }
+        - { state: "latest", name: "gulp-cli" }
         - { state: "latest", name: "node-sass" }
-        - { state: "latest", name: "sass-lint" }
+        - { state: "latest", name: "prettier" }
+        - { state: "latest", name: "stylelint" }
