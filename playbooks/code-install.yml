@@ -1,0 +1,33 @@
+---
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: apt-key add
+      apt_key:
+        url: "{{ item.url }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", url: "https://packages.microsoft.com/keys/microsoft.asc" }
+
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" }
+
+    - name: apt install
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "latest", name: "code" }
+    
+    - name: remove duplicated apt source list
+      file:
+        path: "{{ item.path }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "absent", path: "/etc/apt/sources.list.d/vscode.list" }
+        - { state: "absent", path: "/etc/apt/sources.list.d/vscode.list.save" }
