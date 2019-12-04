@@ -28,3 +28,4 @@
         - { state: "latest", name: "libreoffice-l10n-ko" }
         - { state: "latest", name: "libreoffice-l10n-zh-cn" }
         - { state: "latest", name: "libreoffice-l10n-zh-tw" }
+        - { state: "latest", name: "libreoffice-templates" }

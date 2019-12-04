@@ -8,6 +8,7 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "latest", name: "audacity" }
         - { state: "latest", name: "bleachbit" }
         - { state: "latest", name: "blender" }
         - { state: "latest", name: "bmon" }
@@ -22,15 +23,22 @@
         - { state: "latest", name: "flashplugin-installer" }
         - { state: "latest", name: "fonts-arphic-ukai" }
         - { state: "latest", name: "fonts-arphic-uming" }
+        - { state: "latest", name: "fonts-dejavu" }
+        - { state: "latest", name: "fonts-dejavu-core" }
+        - { state: "latest", name: "fonts-dejavu-extra" }
         - { state: "latest", name: "fonts-nanum-coding" }
         - { state: "latest", name: "fonts-noto" }
         - { state: "latest", name: "fonts-noto-cjk" }
         - { state: "latest", name: "fonts-noto-cjk-extra" }
+        - { state: "latest", name: "fonts-noto-core" }
+        - { state: "latest", name: "fonts-noto-extra" }
         - { state: "latest", name: "fonts-noto-hinted" }
         - { state: "latest", name: "fonts-noto-mono" }
         - { state: "latest", name: "fonts-noto-unhinted" }
+        - { state: "latest", name: "fonts-roboto" }
         - { state: "latest", name: "fonts-takao-gothic" }
         - { state: "latest", name: "fonts-takao-mincho" }
+        - { state: "latest", name: "fonts-ubuntu" }
         - { state: "latest", name: "fonts-unfonts-core" }
         - { state: "latest", name: "gir1.2-atk-1.0" }
         - { state: "latest", name: "gir1.2-clutter-1.0" }
@@ -74,17 +82,22 @@
         - { state: "latest", name: "pandoc" }
         - { state: "latest", name: "pitivi" }
         - { state: "latest", name: "playonlinux" }
+        - { state: "latest", name: "poedit" }
         - { state: "latest", name: "pwgen" }
         - { state: "latest", name: "python-gi" }
         - { state: "latest", name: "rclone" }
         - { state: "latest", name: "remmina" }
+        - { state: "latest", name: "scribus" }
         - { state: "latest", name: "smartmontools" }
         - { state: "latest", name: "snapd" }
         - { state: "latest", name: "sqlite3" }
         - { state: "latest", name: "sshfs" }
         - { state: "latest", name: "tlp" }
         - { state: "latest", name: "tree" }
+        - { state: "latest", name: "ttf-unifont" }
         - { state: "latest", name: "ubuntu-restricted-addons" }
         - { state: "latest", name: "ubuntu-restricted-extras" }
+        - { state: "latest", name: "unifont" }
         - { state: "latest", name: "unrar" }
         - { state: "latest", name: "vlc" }
+        - { state: "latest", name: "xfonts-unifont" }
