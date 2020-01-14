@@ -23,3 +23,13 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "owasp-zap" }
+
+    - name: copy templates
+      template:
+        src: "./templates{{ item.dest }}.j2"
+        dest: "{{ item.dest }}"
+        owner: "{{ item.owner | default('root') }}"
+        group: "{{ item.group | default('root') }}"
+        mode: "{{ item.mode | default('0644') }}"
+      with_items:
+        - { dest: "/usr/share/applications/owasp-zap.desktop" }
