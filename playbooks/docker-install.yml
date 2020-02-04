@@ -15,7 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco test" }
+        - { state: "absent", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco test" }
+        - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan test" }
 
     - name: apt install
       apt:

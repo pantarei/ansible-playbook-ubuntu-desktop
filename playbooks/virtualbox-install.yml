@@ -18,14 +18,11 @@
         - { state: "present", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian disco contrib" }
         - { state: "present", repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian eoan contrib" }
 
-    - name: apt install libvpx5
-      apt:
-        deb: "http://archive.ubuntu.com/ubuntu/pool/main/libv/libvpx/libvpx5_1.7.0-3_amd64.deb"
-
     - name: apt install
       apt:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "absent", name: "virtualbox-6.0" }
         - { state: "latest", name: "dkms" }
-        - { state: "latest", name: "virtualbox-6.0" }
+        - { state: "latest", name: "virtualbox-6.1" }
