@@ -41,15 +41,15 @@
         - { state: "latest", name: "tasksel" }
         - { state: "latest", name: "ubuntu-desktop" }
         - { state: "latest", name: "ubuntu-server" }
-        - { state: "latest", name: "vanilla-gnome-desktop" }
+#        - { state: "latest", name: "vanilla-gnome-desktop" }
 
-    - name: apt-add-repository
-      apt_repository:
-        repo: "{{ item.repo }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "present", repo: "ppa:graphics-drivers/ppa" }
-        - { state: "absent", repo: "ppa:ubuntu-x-swat/updates" }
+#    - name: apt-add-repository
+#      apt_repository:
+#        repo: "{{ item.repo }}"
+#        state: "{{ item.state }}"
+#      with_items:
+#        - { state: "present", repo: "ppa:graphics-drivers/ppa" }
+#        - { state: "absent", repo: "ppa:ubuntu-x-swat/updates" }
 
     - name: ubuntu-drivers autoinstall
       shell: |
@@ -76,13 +76,6 @@
         line: "WaylandEnable=false"
         state: "present"
 
-    - name: fix NetworkManager
-      shell: |
-        rm -rf /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
-        rm -rf /etc/netplan/*
-      register: fix_networkmanager_result
-      changed_when: fix_networkmanager_result is not succeeded
-
     - name: fix grub2
       shell: |
         cp /usr/share/grub/*.pf2 /boot/grub/
@@ -100,13 +93,6 @@
         dest: "/etc/resolv.conf"
         state: "link"
         force: "yes"
-
-    - name: fix Bluetooth Mouse M557
-      lineinfile:
-        path: "/usr/share/gnome-bluetooth/pin-code-database.xml"
-        regexp: "^\t<device oui=\"00:1F:20:\".*$"
-        line: "\t<device oui=\"00:1F:20:\" type=\"mouse\" name=\"Bluetooth Mouse M557\" pin=\"0000\" />"
-        state: "present"
 
     - name: fix RTC in UTC
       shell: |

@@ -13,9 +13,10 @@
     - name: apt-add-repository
       apt_repository:
         repo: "{{ item.repo }}"
+        filename: "{{ item.filename }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" }
+        - { state: "present", filename: "vscode", repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" }
 
     - name: apt install
       apt:
@@ -23,11 +24,3 @@
         state: "{{ item.state }}"
       with_items:
         - { state: "latest", name: "code" }
-    
-    - name: remove duplicated apt source list
-      file:
-        path: "{{ item.path }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "absent", path: "/etc/apt/sources.list.d/vscode.list" }
-        - { state: "absent", path: "/etc/apt/sources.list.d/vscode.list.save" }

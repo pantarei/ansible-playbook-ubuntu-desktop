@@ -13,9 +13,10 @@
     - name: apt-add-repository
       apt_repository:
         repo: "{{ item.repo }}"
+        filename: "{{ item.filename }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" }
+        - { state: "present", filename: "google-chrome", repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" }
 
     - name: apt install
       apt:
@@ -24,11 +25,3 @@
       with_items:
         - { state: "absent", name: "chromium-browser" }
         - { state: "latest", name: "google-chrome-stable" }
-
-    - name: remove duplicated apt source list
-      file:
-        path: "{{ item.path }}"
-        state: "{{ item.state }}"
-      with_items:
-        - { state: "absent", path: "/etc/apt/sources.list.d/google-chrome.list" }
-        - { state: "absent", path: "/etc/apt/sources.list.d/google-chrome.list.save" }
