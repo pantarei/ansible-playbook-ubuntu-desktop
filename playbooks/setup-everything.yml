@@ -10,6 +10,7 @@
 - import_playbook: apache2-install.yml
 - import_playbook: chrome-install.yml
 - import_playbook: code-install.yml
+- import_playbook: darktable.yml
 - import_playbook: docker-install.yml
 - import_playbook: firefox-install.yml
 - import_playbook: fprint-install.yml
