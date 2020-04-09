@@ -41,7 +41,7 @@
         - { state: "latest", name: "tasksel" }
         - { state: "latest", name: "ubuntu-desktop" }
         - { state: "latest", name: "ubuntu-server" }
-#        - { state: "latest", name: "vanilla-gnome-desktop" }
+        - { state: "latest", name: "vanilla-gnome-desktop" }
 
 #    - name: apt-add-repository
 #      apt_repository:
