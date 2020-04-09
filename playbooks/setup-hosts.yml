@@ -53,21 +53,21 @@
 
     - name: ubuntu-drivers autoinstall
       shell: |
-        DEBIAN_FRONTEND=noninteractive ubuntu-drivers autoinstall
-      register: ubuntu_drivers_autoinstall_result
-      changed_when: ubuntu_drivers_autoinstall_result is not succeeded
+        ubuntu-drivers autoinstall
+      changed_when: false
+      ignore_errors: true
 
     - name: fwupdmgr -y update
       shell: |
         fwupdmgr -y update
-      register: fwupdmgr_result
-      changed_when: fwupdmgr_result is not succeeded
+      changed_when: false
+      ignore_errors: true
 
     - name: dconf update
       shell: |
         dconf update
-      register: result
-      changed_when: result is not succeeded
+      changed_when: false
+      ignore_errors: true
 
     - name: enforce gdm3 with xorg
       lineinfile:
@@ -97,8 +97,8 @@
     - name: fix RTC in UTC
       shell: |
         timedatectl set-local-rtc 0 --adjust-system-clock
-      register: result
-      changed_when: result is not succeeded
+      changed_when: false
+      ignore_errors: true
 
     - name: disable network printer auto detect
       shell: |
@@ -107,5 +107,5 @@
         sed -i 's/^#*\s*BrowseProtocols.*$/BrowseProtocols none/g' /etc/cups/cups-browsed.conf
         systemctl restart cups-browsed
         systemctl restart cups
-      register: result
-      changed_when: result is not succeeded
+      changed_when: false
+      ignore_errors: true

@@ -8,6 +8,7 @@
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       with_items:
+        - { state: "latest", name: "hibernate" }
         - { state: "latest", name: "pm-utils" }
 
     - name: Enable hibernate by default in upower
@@ -28,15 +29,3 @@
         regexp: '^#*HandleLidSwitch=.*'
         replace: 'HandleLidSwitch=hibernate'
       register: replace_result
-
-    - name: service systemd-logind.service restart
-      service:
-        name: "systemd-logind.service"
-        state: "restarted"
-      when: replace_result | changed
-    
-    - name: service gdm3 restart
-      service:
-        name: "gdm3"
-        state: "restarted"
-      when: replace_result | changed
