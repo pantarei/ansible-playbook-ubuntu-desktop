@@ -3,19 +3,19 @@
 - hosts: all
   remote_user: root
   tasks:
-#    - name: apt-key add
-#      apt_key:
-#        url: "{{ item.url }}"
-#        state: "{{ item.state }}"
-#      with_items:
-#        - { state: "present", url: "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_19.10/Release.key" }
-#
-#    - name: apt-add-repository
-#      apt_repository:
-#        repo: "{{ item.repo }}"
-#        state: "{{ item.state }}"
-#      with_items:
-#        - { state: "present", repo: "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_19.10/ /" }
+    - name: apt-key add
+      apt_key:
+        url: "{{ item.url }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", url: "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.04/Release.key" }
+
+    - name: apt-add-repository
+      apt_repository:
+        repo: "{{ item.repo }}"
+        state: "{{ item.state }}"
+      with_items:
+        - { state: "present", repo: "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_20.04/ /" }
 
     - name: apt install
       apt:

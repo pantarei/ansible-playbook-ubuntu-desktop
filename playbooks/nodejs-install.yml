@@ -15,7 +15,8 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb https://deb.nodesource.com/node_13.x eoan main" }
+        - { state: "absent", repo: "deb https://deb.nodesource.com/node_13.x eoan main" }
+        - { state: "present", repo: "deb https://deb.nodesource.com/node_13.x focal main" }
 
     - name: apt install
       apt:

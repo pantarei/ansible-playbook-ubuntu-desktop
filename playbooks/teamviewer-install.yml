@@ -15,7 +15,7 @@
         repo: "{{ item.repo }}"
         state: "{{ item.state }}"
       with_items:
-        - { state: "present", repo: "deb http://linux.teamviewer.com/deb stable main" }
+        - { state: "present", repo: "deb http://linux.teamviewer.com/deb stable main", filename: "tvinternal" }
 
     - name: apt install
       apt:
